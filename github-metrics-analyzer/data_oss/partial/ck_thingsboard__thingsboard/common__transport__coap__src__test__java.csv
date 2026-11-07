@@ -1,3 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/transport/coap/src/test/java/org/thingsboard/server/transport/coap/efento/CoapEfentoTransportResourceTest.java,35,1,0,15,133,0,0,33,7,1,1,0.9259259,0.9259259,1
-thingsboard/thingsboard,common/transport/coap/src/test/java/org/thingsboard/server/transport/coap/CoapTransportResourceTest.java,16,1,0,15,30,60,0,13,12,10,10,0.33333334,0.33333334,1

@@ -1,2 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Features/ByteViewer/src/test/java/ghidra/app/plugin/core/byteviewer/FileByteBlockTest.java,24,2,0,9,29,0,0,10,0,4,0,0.9166667,1.0,1

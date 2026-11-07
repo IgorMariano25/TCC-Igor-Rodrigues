@@ -1,3 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,rest-client/src/main/java/org/thingsboard/rest/client/RestClient.java,739,1,0,187,149,0,0,452,2,14,3,0.89716333,0.91026044,143
-thingsboard/thingsboard,rest-client/src/main/java/org/thingsboard/rest/client/utils/RestJsonConverter.java,12,1,0,12,23,4,0,4,4,5,5,1.0,1.0,1

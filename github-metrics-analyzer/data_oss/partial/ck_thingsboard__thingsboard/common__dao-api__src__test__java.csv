@@ -1,2 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/dao-api/src/test/java/org/thingsboard/server/dao/nosql/TbResultSetTest.java,6,1,0,12,26,15,0,6,0,0,0,0.0,0.0,1

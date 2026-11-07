@@ -1,9 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/server/client/LwM2mClientTest.java,1,1,0,5,5,0,0,1,0,0,0,0.0,0.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/bootstrap/LwM2mBootstrapCertificateReloadTest.java,7,1,0,16,32,0,0,7,0,9,0,1.0,1.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/server/store/util/LwM2MClientSerDesTest.java,2,1,0,24,91,0,0,1,0,0,0,0.0,0.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/bootstrap/LwM2MTransportBootstrapServiceTest.java,7,1,0,14,22,0,0,3,0,10,1,0.6666667,1.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/server/LwM2mServerCertificateReloadTest.java,6,1,0,23,29,0,0,6,0,15,0,1.0,1.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/server/model/LwM2MModelConfigServiceImplTest.java,4,1,0,5,17,0,0,4,0,2,0,1.0,1.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/config/LwM2MTransportServerConfigDebounceTest.java,6,1,0,9,13,0,0,6,0,4,1,1.0,1.0,1
-thingsboard/thingsboard,common/transport/lwm2m/src/test/java/org/thingsboard/server/transport/lwm2m/server/store/TbRedisLwM2MClientStoreTest.java,6,1,0,14,28,0,0,6,1,4,0,1.0,1.0,1

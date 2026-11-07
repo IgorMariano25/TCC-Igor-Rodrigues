@@ -1,6 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Features/SystemEmulation/src/test/java/ghidra/pcode/emu/linux/EmuLinuxAmd64SyscallUseropLibraryTest.java,20,3,0,23,56,1,0,17,0,18,4,0.6515151,0.6818182,3
-NationalSecurityAgency/ghidra,Ghidra/Features/SystemEmulation/src/test/java/ghidra/pcode/emu/sys/EmuAmd64SyscallUseropLibraryTest.java,15,4,0,20,44,8,0,14,0,11,0,0.8095238,1.0,3
-NationalSecurityAgency/ghidra,Ghidra/Features/SystemEmulation/src/test/java/ghidra/pcode/emu/linux/EmuLinuxX86SyscallUseropLibraryTest.java,20,3,0,23,56,1,0,17,0,18,4,0.6515151,0.6818182,3
-NationalSecurityAgency/ghidra,Ghidra/Features/SystemEmulation/src/test/java/ghidra/pcode/struct/sub/StructuredSleighTest.java,25,3,0,13,57,64,0,25,0,4,0,0.015151516,0.015151516,13
-NationalSecurityAgency/ghidra,Ghidra/Features/SystemEmulation/src/test/java/ghidra/pcode/emu/sys/SyscallTestHelper.java,6,1,0,8,14,1,0,5,0,1,0,0.33333334,0.33333334,2

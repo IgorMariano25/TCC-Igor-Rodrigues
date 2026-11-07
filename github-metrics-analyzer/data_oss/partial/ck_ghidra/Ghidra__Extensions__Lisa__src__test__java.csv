@@ -1,6 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Extensions/Lisa/src/test/java/ghidra/lisa/DataflowAnalysesTest.java,4,3,0,3,5,6,0,4,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Extensions/Lisa/src/test/java/ghidra/lisa/MiscAnalysesTest.java,2,3,0,3,5,1,0,2,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Extensions/Lisa/src/test/java/ghidra/lisa/InfoflowAnalysesTest.java,5,3,0,3,5,10,0,5,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Extensions/Lisa/src/test/java/ghidra/lisa/NumericAnalysesTest.java,15,3,0,3,8,105,0,15,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Extensions/Lisa/src/test/java/ghidra/lisa/AbstractLisaTest.java,40,2,4,45,97,128,0,26,2,22,1,0.33992094,0.53754944,2

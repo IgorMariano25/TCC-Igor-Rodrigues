@@ -1,3 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/cache/src/test/java/org/thingsboard/server/cache/CacheSpecsMapTest.java,3,1,0,13,4,0,0,3,0,1,0,1.0,1.0,1
-thingsboard/thingsboard,common/cache/src/test/java/org/thingsboard/server/cache/TsLatestRedisCacheTest.java,3,1,0,4,8,1,0,2,0,0,0,0.0,0.0,1

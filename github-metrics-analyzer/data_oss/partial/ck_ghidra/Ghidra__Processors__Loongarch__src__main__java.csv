@@ -1,4 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Processors/Loongarch/src/main/java/ghidra/app/plugin/core/analysis/LoongsonAnalyzer.java,18,2,0,10,33,6,0,8,0,2,1,0.16666667,0.16666667,2
-NationalSecurityAgency/ghidra,Ghidra/Processors/Loongarch/src/main/java/ghidra/app/util/bin/format/elf/relocation/Loongarch_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/Loongarch/src/main/java/ghidra/app/util/bin/format/elf/relocation/Loongarch_ElfRelocationHandler.java,41,2,0,11,29,6,0,4,0,0,0,0.0,0.0,1

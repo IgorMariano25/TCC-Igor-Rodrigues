@@ -1,8 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/DBAnnotatedObjectProcessor.java,9,2,0,5,16,8,0,5,0,2,1,0.1,0.1,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/DBAnnotatedObjectValidator.java,32,1,0,8,31,0,0,8,0,4,0,0.5,0.75,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/AbstractDBAnnotationValidator.java,4,1,2,1,5,0,0,2,0,1,0,1.0,1.0,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/ValidationContext.java,70,1,0,3,70,48,0,26,0,10,0,0.84615386,0.84615386,2
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/AccessSpec.java,7,1,0,1,1,1,0,3,2,1,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/DBAnnotatedColumnValidator.java,5,2,0,3,8,0,0,2,0,1,0,1.0,1.0,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/AnnotationValidator/src/main/java/ghidra/util/database/annotproc/DBAnnotatedFieldValidator.java,18,2,0,4,35,14,0,8,0,13,10,0.25,0.35714287,1

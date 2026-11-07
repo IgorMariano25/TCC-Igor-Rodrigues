@@ -1,1 +1,21 @@
 .idea/
+.claude/
+.tmp/
+
+# Python / SO
+__pycache__/
+*.pyc
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Artefatos de build do LaTeX (Artigo_TCC/)
+Artigo_TCC/**/*.aux
+Artigo_TCC/**/*.log
+Artigo_TCC/**/*.bbl
+Artigo_TCC/**/*.blg
+Artigo_TCC/**/*.out
+Artigo_TCC/**/*.fls
+Artigo_TCC/**/*.fdb_latexmk
+Artigo_TCC/**/*.synctex.gz
+Artigo_TCC/Real/main.pdf

@@ -1,4 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Extensions/MachineLearning/src/test/java/ghidra/machinelearning/functionfinding/RandomSubsetTest.java,9,2,0,6,15,3,0,3,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Extensions/MachineLearning/src/test/java/ghidra/machinelearning/functionfinding/TrainingAndTestDataTest.java,4,2,0,6,8,0,0,4,0,3,0,1.0,1.0,1
-NationalSecurityAgency/ghidra,Ghidra/Extensions/MachineLearning/src/test/java/ghidra/machinelearning/functionfinding/FunctionStartRFParamsTest.java,11,2,0,2,5,55,0,11,0,0,0,0.0,0.0,1

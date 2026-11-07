@@ -1,9 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/service/tracermi/RemoteMethodTest.java,10,2,0,8,16,45,0,10,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/service/tracermi/ProtobufSocket.java,7,1,0,2,12,0,0,4,0,4,0,1.0,1.0,2
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/gui/tracermi/RemoteMethodInvocationDialogTest.java,13,2,0,19,31,19,0,9,3,1,1,0.04761905,0.04761905,3
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/service/tracermi/TraceRmiTargetTest.java,4,4,0,11,18,1,0,4,0,0,0,0.0,0.0,2
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/gui/tracermi/connection/tree/TraceRmiConnectionTreeHelper.java,4,1,0,8,0,6,0,4,4,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/service/tracermi/TestTraceRmiClient.java,11,1,0,3,41,0,0,11,0,3,0,1.0,1.0,2
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/service/tracermi/TestTraceRmiConnection.java,43,3,2,20,34,574,0,37,0,6,0,0.039829303,0.056899004,2
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-rmi-trace/src/test/java/ghidra/app/plugin/core/debug/gui/tracermi/connection/TraceRmiConnectionManagerProviderTest.java,36,2,0,27,75,0,0,24,3,4,1,0.51,0.51,1

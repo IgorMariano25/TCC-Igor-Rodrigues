@@ -1,7 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/message/src/test/java/org/thingsboard/server/common/msg/TbMsgMetaDataTest.java,3,1,0,6,8,0,0,3,0,4,1,1.0,1.0,2
-thingsboard/thingsboard,common/message/src/test/java/org/thingsboard/server/common/msg/EncryptionUtilTest.java,1,1,0,1,3,0,0,1,0,0,0,0.0,0.0,1
-thingsboard/thingsboard,common/message/src/test/java/org/thingsboard/server/common/msg/queue/TopicPartitionInfoTest.java,2,1,0,3,11,0,0,2,0,1,0,1.0,1.0,1
-thingsboard/thingsboard,common/message/src/test/java/org/thingsboard/server/common/msg/tools/TbRateLimitsTest.java,11,1,0,5,17,36,0,9,0,0,0,0.0,0.0,1
-thingsboard/thingsboard,common/message/src/test/java/org/thingsboard/server/common/msg/TbMsgProcessingStackItemTest.java,1,1,0,5,5,0,0,1,0,0,0,0.0,0.0,1
-thingsboard/thingsboard,common/message/src/test/java/org/thingsboard/server/common/msg/TbMsgProcessingCtxTest.java,7,1,0,4,8,0,0,7,0,2,0,1.0,1.0,1

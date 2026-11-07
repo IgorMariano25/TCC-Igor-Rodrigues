@@ -1,9 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/DefaultCoapServerService.java,33,1,0,21,42,41,0,15,0,6,0,0.1,0.1,1
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/TbCoapDtlsSessionInfo.java,1,1,0,3,1,0,0,1,0,3,0,0.0,0.0,1
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/TbCoapDtlsCertificateVerifier.java,19,1,0,19,29,8,0,10,0,4,0,0.35714287,0.35714287,2
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/TbCoapDtlsSettings.java,12,1,0,20,15,4,0,5,1,12,0,0.33333334,0.33333334,1
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/TbCoapServerMessageDeliverer.java,8,2,0,6,14,6,0,4,0,0,0,0.0,0.0,1
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/TbCoapDtlsSessionInMemoryStorage.java,4,1,0,4,8,0,0,3,0,3,0,0.6666667,1.0,1
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/CoapServerContext.java,0,1,0,7,0,0,0,0,0,3,0,0.0,0.0,1
-thingsboard/thingsboard,common/coap-server/src/main/java/org/thingsboard/server/coapserver/CoapServerService.java,2,1,0,3,0,1,0,2,0,0,0,0.0,0.0,1

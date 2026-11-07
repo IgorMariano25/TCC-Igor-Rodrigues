@@ -1,3 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Processors/Hexagon/src/test/java/ghidra/app/plugin/assembler/sleigh/HexagonAssemblyTest.java,7,2,0,5,9,21,0,7,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/Hexagon/src/test/java/ghidra/program/emulation/HexagonPcodeUseropLibraryTest.java,21,2,0,9,19,72,0,20,0,13,13,0.25263157,0.38421053,1

@@ -1,23 +1,29 @@
-repos/
+# =============================================================================
+# Organizado na ordem em que o projeto evoluiu: ambiente → ferramentas →
+# segredos → Corpus 1 (NSA) → Corpus 2 (OSS) → Corpus 3 (gov.br) → logs.
+# Arquivos grandes (>100 MB) NÃO são ignorados: vão via Git LFS
+# (data/complexity.csv, metrics.db — ver .gitattributes).
+# =============================================================================
 
+
+# --- 1. Ambiente Python e IDE ------------------------------------------------
 __pycache__/
 *.pyc
 .venv/
 venv/
+.idea/
 
-# Tool downloads and temp (CK JAR, redirected TEMP, CK output)
+
+# --- 2. Ferramentas externas e temporários -----------------------------------
+# Binários pesados (CK, bundle CodeQL ~1 GB, SonarScanner, Gitleaks),
+# instalados por scripts/setup_dev_tools.ps1; nunca versionados (estudo §5-A).
+developer-tools/
+# Downloads de ferramentas (JAR do CK), TEMP redirecionado e saída do CK.
 tools/
 .tmp/
 
-# Heavy external binaries (CK, CodeQL bundle ~1GB, SonarScanner, Gitleaks).
-# Installed by scripts/setup_dev_tools.ps1; never versioned (study §5-A).
-developer-tools/
-data/pilot_semgrep.json
 
-# Estado intermediário/retomável das coletas (consolidado depois em data/*.csv)
-data/partial/
-
-# Secrets - never commit tokens/credentials
+# --- 3. Segredos — nunca commitar tokens/credenciais -------------------------
 .env
 .env.*
 !.env.example
@@ -25,32 +31,32 @@ data/partial/
 *.secret
 secrets.json
 
-# Arquivos grandes (>100 MB) versionados via Git LFS:
-#   data/complexity.csv, metrics.db  -> ver .gitattributes
 
-
-# Snapshots do corpus antigo (NSA) — o conteúdo já está preservado no
-# commit b37ad22; estas cópias locais existem só para consulta offline.
-data_nsa/
-reports_nsa/
+# --- 4. Corpus 1 — NSA -----------------------
 repos_nsa/
+data_nsa/
 data_nsa_stale/
+reports_nsa/
 
-# Rede de segurança do re-run limpo de 2026-09-17: resultados verificados da
-# 1ª passada do Corpus 2, guardados antes de zerar data/ (commit fd9c153).
-data_corpus2_run1/
-reports_corpus2_run1/
 
-# Corpus 3 (repositórios do governo, repos_govbr.txt), executado por
-# scripts/run_all_corpus.py --corpus govbr em pastas próprias, para não tocar
-# em repos/, data/ e reports/ do Corpus 2.
+# --- 5. Corpus 2 — OSS  -------------------------------------------
+repos/
+repos_oss/
+
+# Estado intermediário/retomável das coletas (consolidado depois nos CSVs).
+data/partial/
+data_oss/partial/
+data/pilot_semgrep.json
+
+
+# --- 6. Corpus 3 — gov.br ----------------------------------
+# Executado por scripts/run_all_corpus.py --corpus govbr em pastas próprias,
+# para não tocar nas pastas do Corpus 2.
 repos_govbr/
 data_govbr/
 reports_govbr/
 
-# Logs de execução do pipeline (~13 MB). São artefatos reproduzíveis: cada
-# execução os regrava, e os números que importam já estão nos CSVs de data/
-# e reports/. O RUN_LOG.md é gerado por collect_native_resumable.py e foi
-# removido do versionamento no commit 269f888.
+
+# --- 7. Logs de execução do pipeline --------------------------------
 *.log
 RUN_LOG.md

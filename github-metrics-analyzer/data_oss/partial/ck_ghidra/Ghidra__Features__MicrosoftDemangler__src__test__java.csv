@@ -1,4 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Features/MicrosoftDemangler/src/test/java/ghidra/app/plugin/core/analysis/MicrosoftDemanglerAnalyzerTest.java,12,2,0,16,31,0,0,11,0,3,0,0.6,0.6,2
-NationalSecurityAgency/ghidra,Ghidra/Features/MicrosoftDemangler/src/test/java/ghidra/app/util/demangler/microsoft/MicrosoftDemanglerExtraTest.java,26,2,0,14,22,248,0,24,0,8,0,0.021052632,0.031578947,1
-NationalSecurityAgency/ghidra,Ghidra/Features/MicrosoftDemangler/src/test/java/ghidra/app/util/demangler/microsoft/MicrosoftDemanglerTest.java,24,2,0,17,22,63,0,15,0,1,0,0.16483517,0.16483517,1

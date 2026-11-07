@@ -1,7 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Features/ProgramGraph/src/main/java/ghidra/graph/program/DataReferenceGraph.java,29,2,0,13,34,0,0,7,0,8,6,0.6666667,1.0,2
-NationalSecurityAgency/ghidra,Ghidra/Features/ProgramGraph/src/main/java/ghidra/graph/program/DataReferenceGraphTask.java,11,2,0,17,24,0,0,3,0,13,1,1.0,1.0,1
-NationalSecurityAgency/ghidra,Ghidra/Features/ProgramGraph/src/main/java/ghidra/graph/program/BlockModelGraphDisplayListener.java,27,2,0,14,25,16,0,9,0,1,0,0.14285715,0.14285715,1
-NationalSecurityAgency/ghidra,Ghidra/Features/ProgramGraph/src/main/java/ghidra/graph/program/BlockGraphTask.java,95,2,0,39,101,216,0,25,0,20,6,0.16666667,0.2777778,1
-NationalSecurityAgency/ghidra,Ghidra/Features/ProgramGraph/src/main/java/ghidra/graph/program/ProgramGraphPlugin.java,39,2,0,31,51,243,0,26,0,21,9,0.11111111,0.16666667,1
-NationalSecurityAgency/ghidra,Ghidra/Features/ProgramGraph/src/main/java/ghidra/graph/program/DataReferenceGraphDisplayListener.java,17,2,0,17,21,39,0,10,0,1,0,0.06666667,0.06666667,1

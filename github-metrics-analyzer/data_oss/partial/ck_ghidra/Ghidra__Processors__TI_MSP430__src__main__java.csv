@@ -1,6 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Processors/TI_MSP430/src/main/java/ghidra/app/util/bin/format/elf/extend/MSP430_ElfExtension.java,5,2,0,6,8,6,0,4,0,22,22,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/TI_MSP430/src/main/java/ghidra/app/util/bin/format/elf/relocation/MSP430_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/TI_MSP430/src/main/java/ghidra/app/util/bin/format/elf/relocation/MSP430_ElfRelocationHandler.java,12,2,0,10,14,3,0,3,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/TI_MSP430/src/main/java/ghidra/app/util/bin/format/elf/relocation/MSP430X_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/TI_MSP430/src/main/java/ghidra/app/util/bin/format/elf/relocation/MSP430X_ElfRelocationHandler.java,22,2,0,10,15,3,0,3,0,0,0,0.0,0.0,1

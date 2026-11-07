@@ -1,4 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Processors/68000/src/main/java/ghidra/program/emulation/M68kPcodeUseropLibraryFactory.java,1,1,0,6,1,0,0,1,0,0,0,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/68000/src/main/java/ghidra/program/emulation/m68kEmulateInstructionStateModifier.java,10,2,0,5,5,0,0,2,0,0,0,0.0,0.0,2
-NationalSecurityAgency/ghidra,Ghidra/Processors/68000/src/main/java/ghidra/app/plugin/core/analysis/Motorola68KAnalyzer.java,98,2,0,18,98,68,0,23,0,9,4,0.33333334,0.33333334,3

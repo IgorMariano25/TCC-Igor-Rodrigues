@@ -1,5 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/transport/snmp/src/test/java/org/thingsboard/server/transport/snmp/SnmpDeviceSimulatorV2.java,14,2,0,23,43,70,0,13,0,4,0,0.051282052,0.08974359,1
-thingsboard/thingsboard,common/transport/snmp/src/test/java/org/thingsboard/server/transport/snmp/SnmpDeviceSimulatorV3.java,18,2,0,36,50,116,0,16,2,3,0,0.021978023,0.021978023,1
-thingsboard/thingsboard,common/transport/snmp/src/test/java/org/thingsboard/server/transport/snmp/SnmpTestV3.java,2,1,0,3,6,0,0,2,1,0,0,0.0,0.0,2
-thingsboard/thingsboard,common/transport/snmp/src/test/java/org/thingsboard/server/transport/snmp/SnmpTestV2.java,7,1,0,3,21,1,0,3,3,1,1,0.0,0.0,1

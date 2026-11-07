@@ -1,5 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Processors/tricore/src/main/java/ghidra/program/emulation/TricorePcodeUseropLibraryFactory.java,2,2,0,8,5,0,0,2,0,0,0,0.0,0.0,2
-NationalSecurityAgency/ghidra,Ghidra/Processors/tricore/src/main/java/ghidra/app/util/bin/format/elf/relocation/Tricore_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,7,6,0.0,0.0,1
-NationalSecurityAgency/ghidra,Ghidra/Processors/tricore/src/main/java/ghidra/program/emulation/TRICOREEmulateInstructionStateModifier.java,9,2,0,10,45,6,0,6,0,1,0,0.0,0.0,3
-NationalSecurityAgency/ghidra,Ghidra/Processors/tricore/src/main/java/ghidra/app/util/bin/format/elf/relocation/Tricore_ElfRelocationHandler.java,46,2,0,12,30,171,0,19,0,0,0,0.0,0.0,1

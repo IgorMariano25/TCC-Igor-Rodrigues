@@ -1,3 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-importers/src/main/java/ghidra/app/util/opinion/TenetLoader.java,53,1,0,40,111,80,0,16,1,14,12,0.11111111,0.16666667,1
-NationalSecurityAgency/ghidra,Ghidra/Debug/Debugger-importers/src/main/java/ghidra/app/util/opinion/TenetPlusPlusLoader.java,63,1,0,42,118,87,0,18,1,19,13,0.11111111,0.16666667,1

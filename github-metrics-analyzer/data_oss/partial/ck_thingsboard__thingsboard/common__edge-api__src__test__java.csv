@@ -1,3 +1,0 @@
-repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
-thingsboard/thingsboard,common/edge-api/src/test/java/org/thingsboard/edge/rpc/EdgeGrpcClientLeakTest.java,19,1,0,10,36,3,0,8,1,5,3,1.0,1.0,3
-thingsboard/thingsboard,common/edge-api/src/test/java/org/thingsboard/edge/rpc/EdgeVersionComparatorTest.java,11,1,0,2,8,55,0,11,0,0,0,0.0,0.0,1
