@@ -125,81 +125,6 @@ def fig_density():
 
 
 # ------------------------------------------------------------------ #
-# Figure 3 - performance across corpora + GOV.BR fold-level view
-# ------------------------------------------------------------------ #
-def gov_folds():
-    conf = pd.read_csv(GMA / "reports_govbr" / "ml_confusions.csv")
-    conf["fold"] = conf.groupby("model").cumcount() + 1
-    return conf
-
-
-def fig_performance():
-    res = {lab: pd.read_csv(GMA / rd / "ml_results.csv").set_index("model")
-           for lab, _, rd, _, _ in CORPORA}
-    conf = gov_folds()
-    dspace = conf.fold.isin([1, 3])          # evidencia / deposita tested alone
-    excl = conf[~dspace].groupby("model").roc_auc.mean()
-
-    fig = plt.figure(figsize=(FULL_W, 2.15))
-    gs = fig.add_gridspec(1, 3, width_ratios=[1.55, 1, 1], wspace=0.38)
-
-    # (a) ROC-AUC by model and corpus
-    ax = fig.add_subplot(gs[0])
-    y = np.arange(len(MODELS))[::-1]
-    for yi, m in zip(y, MODELS):
-        vals = [res[lab].loc[m, "roc_auc"] for lab, *_ in CORPORA] + [excl[m]]
-        ax.hlines(yi, min(vals), max(vals), color=AXIS, linewidth=1.2, zorder=1)
-        for (lab, _, _, colour, mk), v in zip(CORPORA, vals[:3]):
-            ax.scatter(v, yi, marker=mk, s=22, color=colour, edgecolor=SURFACE, linewidth=0.6, zorder=3)
-        ax.scatter(excl[m], yi, marker="^", s=20, facecolor=SURFACE, edgecolor=GOV,
-                   linewidth=1.1, zorder=2)
-    ax.set_yticks(y)
-    ax.set_yticklabels([MODEL_LABEL[m] for m in MODELS])
-    ax.set_xlim(0.70, 1.0)
-    ax.set_xticks([0.70, 0.80, 0.90, 1.00])
-    ax.set_xlabel("ROC-AUC (axis starts at 0.70)")
-    ax.set_title("(a) Mean ROC-AUC per corpus", loc="left", color=INK, pad=3)
-    style(ax)
-    handles = [Line2D([], [], marker=mk, linestyle="none", markersize=4.6, markerfacecolor=c,
-                      markeredgecolor=SURFACE, label=lab) for lab, _, _, c, mk in CORPORA]
-    handles.append(Line2D([], [], marker="^", linestyle="none", markersize=4.4,
-                          markerfacecolor=SURFACE, markeredgecolor=GOV, markeredgewidth=1.1,
-                          label="GOV.BR without folds 1, 3"))
-    ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(-0.55, -0.27), ncol=4,
-              frameon=False, handletextpad=0.2, columnspacing=0.7)
-
-    # (b), (c) GOV.BR per fold, one dot per classifier (folds defined in the caption)
-    fold_lab = ["1", "2", "3", "4", "5"]
-    offsets = np.linspace(-0.22, 0.22, len(MODELS))
-    for k, (metric, title, ylim) in enumerate([("roc_auc", "(b) ROC-AUC per fold", (0.55, 1.02)),
-                                               ("precision", "(c) Precision per fold", (0, 1.0))]):
-        ax = fig.add_subplot(gs[k + 1])
-        for f in range(1, 6):
-            leak = f in (1, 3)
-            if leak:
-                ax.axvspan(f - 0.42, f + 0.42, color=GOV, alpha=0.10, linewidth=0, zorder=0)
-            for off, m in zip(offsets, MODELS):
-                v = conf[(conf.model == m) & (conf.fold == f)][metric].iloc[0]
-                ax.scatter(f + off, v, s=14, color=GOV if leak else MUTED,
-                           edgecolor=SURFACE, linewidth=0.5, zorder=3)
-        ax.set_xticks(range(1, 6))
-        ax.set_xticklabels(fold_lab)
-        ax.set_xlabel("GOV.BR test fold")
-        ax.set_xlim(0.5, 5.5)
-        ax.set_ylim(*ylim)
-        ax.tick_params(axis="y", length=0)
-        ax.set_title(title, loc="left", color=INK, pad=3)
-        style(ax, xgrid=False, ygrid=True)
-    handles = [Line2D([], [], marker="o", linestyle="none", markersize=4.2, markerfacecolor=GOV,
-                      markeredgecolor=SURFACE, label="DSpace twin in training (folds 1, 3)"),
-               Line2D([], [], marker="o", linestyle="none", markersize=4.2, markerfacecolor=MUTED,
-                      markeredgecolor=SURFACE, label="other folds")]
-    ax.legend(handles=handles, loc="upper right", bbox_to_anchor=(1.02, -0.27), ncol=2,
-              frameon=False, handletextpad=0.2, columnspacing=0.7)
-    save(fig, "fig_performance")
-
-
-# ------------------------------------------------------------------ #
 # Figure 1 - the build-free pipeline (neutral fills: no corpus colours)
 # ------------------------------------------------------------------ #
 def fig_pipeline():
@@ -269,8 +194,3 @@ if __name__ == "__main__":
     os.chdir(ROOT)
     fig_pipeline()
     fig_density()
-    fig_performance()
-    # numbers quoted in the text / Table 5
-    conf = gov_folds()
-    conf["group"] = np.where(conf.fold.isin([1, 3]), "dspace", "others")
-    print(conf.groupby(["model", "group"])[["roc_auc", "precision"]].mean().round(3).unstack())

@@ -9,7 +9,7 @@ arquivos de estilo abaixo são cópias idênticas (mesmo SHA-1).
 | Arquivo | Papel |
 |---|---|
 | `main.tex` | texto do artigo |
-| `references.bib` | 44 referências; metadados de cada DOI tirados do registro Crossref |
+| `references.bib` | 36 referências; metadados de cada DOI tirados do registro Crossref |
 | `figures/fig_*.pdf` | figuras vetoriais (os `.png` de 300 dpi são só pré-visualização) |
 | `scripts/make_figures.py` | regenera as figuras a partir dos CSVs do pipeline |
 | `SCITEPRESS.sty`, `article.cls`, `apalike.sty`, `apalike.bst` | cópias do template |
@@ -78,14 +78,6 @@ arredondados de `ml_results.csv`.
 
 O SIGA tem **1.072** achados do Semgrep no diretório do jQuery UI copiado; destes, **1.021**
 estão na documentação HTML, que é o número citado no slide.
-
-Também foram verificados direto nos clones de `repos_govbr/`:
-
-- 2.910 dos 3.652 arquivos `.java` do *deposita-dspace* (79,7%) são idênticos byte a byte, no
-  mesmo caminho, a arquivos do *evidencia-dspace*;
-- 103 dos 109 positivos do *evidencia-dspace* têm o mesmo caminho de um positivo do
-  *deposita-dspace*;
-- o *miguilim-dspace* compartilha só 22 arquivos idênticos (1,7%).
 
 ## Regenerar as figuras
 
