@@ -1,10 +1,11 @@
-# RESUME.md — Contexto do Projeto (AP2 — Engenharia de Software)
+# RESUME.md — Contexto do Projeto (AP2 → TCC — Engenharia de Software)
 
 > Documento de contexto destinado a **assistentes de IA**. Resume objetivo,
 > arquitetura, metodologia, ferramentas, dados, ML e convenções do projeto,
 > para que outro agente compreenda rapidamente o repositório sem precisar
 > reexplorar tudo. Fonte: leitura real dos arquivos do workspace
-> (`AP2_Trabalho_Final.md`, `github-metrics-analyzer/`, `Artigo/`).
+> (`AP2_Trabalho_Final.md`, `github-metrics-analyzer/`, `Artigo/`,
+> `Artigo_TCC/`). **Última atualização: 2026-11-07.**
 
 ---
 
@@ -17,17 +18,33 @@ Machine Learning** à **mineração de repositórios de código-fonte** (MSR).
 segurança**, a partir de métricas de qualidade/estrutura/processo, ancorando tudo
 na norma **ISO/IEC 25010 / 25023**.
 
-**Corpus:** 10 repositórios Java reais da organização `NationalSecurityAgency`
-(NSA) no GitHub (ex.: `ghidra`, `datawave`, `emissary`, `timely`, `lemongrenade`,
-`fractalrabbit`, `rank-based-linkage` e serviços do ecossistema DataWave).
+**Evolução:** o projeto começou como trabalho da disciplina (AP2, artigo SBC em
+português, só com o corpus NSA) e virou o **TCC**. O pipeline é o mesmo, sem
+alterações, aplicado a **três corpora** de 10 repositórios Java cada, e o
+artigo está em inglês, no template SciTePress.
+
+| Corpus | Lista | Repositórios | Linhas do dataset | Positivos |
+|---|---|---|---|---|
+| 1 — NSA | `repos_nsa.txt` | `NationalSecurityAgency/*` (ghidra, datawave, emissary, timely, …) | 31.622 | 560 (1,77%) |
+| 2 — OSS | `repos.txt` | netty, shiro, nacos, rocketmq, zookeeper, dubbo, jenkins, httpcomponents-client, commons-compress, thingsboard | 64.415 | 839 (1,30%) |
+| 3 — GOV.BR | `repos_govbr.txt` | demoiselle (framework, signer, behave, certificate), projetos-codic-ibict (3 forks DSpace + dataverse), lexml/eta-backend-services, projeto-siga/siga | 33.521 | 784 (2,34%) |
+
+- O **Corpus 2 substituiu o NSA** como corpus principal: 4 dos 10 repos NSA
+  são do ecossistema DataWave (variável de confusão). Os critérios estão em
+  `github-metrics-analyzer/CRITERIOS_SELECAO_REPOSITORIOS.md`.
+- O **Corpus 3** saiu de uma lista fornecida pelo autor.
+  `projetos-codic-ibict/dataverse` é clonado no branch `master`
+  (`BRANCH_OVERRIDES` em `clone_repositories.py`).
+- As linhas do dataset incluem arquivos não-Java e caminhos `.java` que só
+  existem no histórico git. O artigo do TCC conta 60.395 arquivos Java.
 
 **Princípio central (crítico):** análise **100% estática** sobre o código-fonte
 clonado. **Nenhum projeto é compilado, buildado ou executado.** Isso condiciona
 todas as escolhas de ferramenta (ex.: CodeQL `--build-mode=none`, SonarScanner
 source-only).
 
-O trabalho tem 3 entregas: (1) extração de dados/métricas, (2) pipeline de ML,
-(3) artigo científico no padrão SBC.
+Entregas: (1) extração de métricas, (2) pipeline de ML, (3) artigo SBC da AP2
+(`Artigo/`) e (4) artigo do TCC (`Artigo_TCC/Real/`).
 
 ---
 
@@ -35,26 +52,37 @@ O trabalho tem 3 entregas: (1) extração de dados/métricas, (2) pipeline de ML
 
 ```
 AP2-Projeto-ES/
-├── AP2_Trabalho_Final.md          # Enunciado oficial do trabalho
+├── README.md                      # Visão geral do projeto
+├── AP2_Trabalho_Final.md          # Enunciado oficial da AP2
 ├── RESUME.md                      # (este arquivo)
-├── Artigo/                        # Artigo científico SBC (LaTeX)
-│   ├── main.tex                   # Corpo do artigo com números reais
-│   ├── referencias.bib            # Bibliografia (obras reais)
-│   ├── sbc-template.sty / sbc.bst # Estilo SBC
-│   └── figuras/                   # Figuras do artigo
+├── Artigo/                        # Artigo AP2: SBC, português, só NSA
+├── Artigo_TCC/
+│   ├── Template/                  # Template SciTePress do orientador — NÃO alterar
+│   ├── Real/                      # Artigo do TCC (inglês, 3 corpora)
+│   │   ├── main.tex, references.bib
+│   │   ├── figures/               # fig_pipeline, fig_density, fig_performance (.pdf)
+│   │   └── scripts/make_figures.py  # regenera as figuras a partir dos CSVs
+│   └── pesquisa_citacoes.md       # Levantamento de referências
 └── github-metrics-analyzer/       # Pipeline de coleta + ML (núcleo do projeto)
-    ├── README.md                  # Documentação principal do pipeline
-    ├── resumo.md                  # Resumo técnico detalhado (versões, decisões)
-    ├── TOOLS_VERSIONS.md          # Versões exatas usadas
-    ├── requirements.txt           # Dependências Python
-    ├── repos.txt                  # Lista owner/repo
-    ├── scripts/                   # Uma fase por arquivo + common.py + run_all.py
-    ├── data/                      # CSVs de saída + dataset final + dicionário
-    ├── reports/                   # Relatório comparativo + resultados ML + charts/
-    ├── repos/                     # Clones git (gerado, sem build)
+    ├── README.md, resumo.md, TOOLS_VERSIONS.md, requirements.txt
+    ├── RETOMAR_CORPUS2.md         # Diário da execução do Corpus 2 por etapas
+    ├── CRITERIOS_SELECAO_*.md     # Critérios de seleção dos repositórios
+    ├── repos.txt / repos_nsa.txt / repos_govbr.txt
+    ├── scripts/                   # Uma fase por arquivo + run_all.py + run_all_corpus.py
+    ├── data/, reports/            # Saídas CANÔNICAS do Corpus 2 (OSS)
+    ├── data_govbr/, reports_govbr/, repos_govbr/   # Corpus 3 (gitignored)
+    ├── data_nsa/, reports_nsa/, repos_nsa/         # Corpus 1 (gitignored; versionado no commit b37ad22)
+    ├── data_oss/, reports_oss/, repos_oss/         # ver aviso abaixo
     ├── developer-tools/           # Binários pesados (gitignored): CK, CodeQL, gitleaks, sonar-scanner
     └── tools/                     # Temporários do CK
 ```
+
+> **Aviso sobre as pastas `*_oss/` (criadas no commit `567bb6d`):**
+> `data_oss/` é uma cópia *intermediária* do Corpus 2, sem
+> `pydriller_metrics.csv` nem `security_dataset.csv`. `reports_oss/` tem os
+> resultados do **NSA** (iguais aos de `reports_nsa/`), não os do OSS. As
+> saídas válidas do Corpus 2 estão em `data/` e `reports/`, e `repos_oss/`
+> guarda os clones do Corpus 2.
 
 ---
 
@@ -117,7 +145,12 @@ clone ──► repos/ (clones git, sem build)
 
 **Dependências reais:** `clone` primeiro; as 9 coletas são independentes entre
 si; `dataset` é barreira (junta tudo); `ml` lê só o dataset; `report` lê os CSVs
-de achados. Scripts de apoio fora do `run_all.py`:
+de achados.
+
+**Outros corpora:** `run_all_corpus.py --corpus <nome>` lê `repos_<nome>.txt`,
+redireciona as saídas para `repos_<nome>/`, `data_<nome>/`, `reports_<nome>/`
+e `metrics_<nome>.db` e então chama o `run_all.py`, repassando `--only` e
+`--skip`. Scripts de apoio fora do `run_all.py`:
 `collect_ck_ghidra.py`, `collect_native_resumable.py` (coletas
 particionadas/retomáveis para o repo gigante `ghidra`).
 
@@ -140,6 +173,10 @@ particionadas/retomáveis para o repo gigante `ghidra`).
 | `build_security_dataset.py` | dataset | `security_dataset.csv`, `dataset_dictionary.md` |
 | `ml_security_pipeline.py` | ml | `ml_results.csv`, `ml_confusions.csv`, `charts/*.png` |
 | `generate_comparative_report.py` | report | `comparative_report.md` |
+| `run_all.py` | orquestrador | Corpus 2 (`data/`, `reports/`) |
+| `run_all_corpus.py` | orquestrador por corpus | `data_<corpus>/`, `reports_<corpus>/` |
+| `collect_ck_partitioned.py`, `collect_ck_ghidra.py` | apoio | CK por raiz de módulo |
+| `recollect_codeql_repo.py` | apoio | recoleta o CodeQL de um único repo |
 | `common.py` | — | utilitários compartilhados |
 | `setup_dev_tools.ps1` | setup | instala binários em `developer-tools/` |
 
@@ -147,8 +184,8 @@ particionadas/retomáveis para o repo gigante `ghidra`).
 
 ## 6. Dataset e ML
 
-**Unidade de análise:** arquivo `.java`. **31.622 arquivos**, **560 positivos**
-(risco de segurança) ≈ **1,77%** → forte desbalanceamento de classes.
+**Unidade de análise:** arquivo `.java` (contagens de cada corpus na §1).
+As classes são muito desbalanceadas: só 1,3–2,3% dos arquivos são positivos.
 
 **Target:** `has_security_risk` (binário; 1 = Semgrep OR CodeQL).
 
@@ -173,18 +210,36 @@ particionadas/retomáveis para o repo gigante `ghidra`).
   desbalanceamento).
 - **Interpretabilidade:** SHAP + importância de features (RandomForest).
 
-**Resultados (médias GroupKFold — de `reports/comparative_report.md`):**
+**Resultados (médias do GroupKFold por repositório, tiradas do `ml_results.csv` de cada corpus):**
 
-| model | precision | recall | f1 | roc_auc |
+| Modelo | ROC-AUC NSA | ROC-AUC OSS | ROC-AUC GOV.BR | Recall NSA / OSS / GOV.BR |
 |---|---|---|---|---|
-| LogisticRegression | 0.089 | 0.644 | 0.155 | 0.785 |
-| DecisionTree | 0.098 | 0.408 | 0.150 | 0.719 |
-| RandomForest | 0.385 | 0.166 | 0.195 | **0.859** |
-| XGBoost | 0.319 | 0.136 | 0.168 | 0.820 |
-| LightGBM | 0.341 | 0.121 | 0.155 | 0.837 |
+| LogisticRegression | 0.815 | 0.893 | 0.854 | 0.705 / 0.754 / 0.751 |
+| DecisionTree | 0.762 | 0.806 | 0.804 | 0.426 / 0.399 / 0.553 |
+| RandomForest | 0.854 | 0.891 | 0.895 | 0.172 / 0.099 / 0.430 |
+| XGBoost | 0.829 | 0.862 | 0.903 | 0.131 / 0.062 / 0.387 |
+| LightGBM | 0.845 | 0.872 | **0.910** | 0.133 / 0.062 / 0.330 |
 
-Trade-off central: RandomForest tem o melhor ROC-AUC; LogisticRegression tem o
-maior recall (útil quando falso-negativo é o pior erro).
+> Os números do NSA vêm do re-run (`reports_nsa/`). A versão original da AP2
+> (RandomForest com 0.859, citada em `Artigo/`) é anterior a esse re-run.
+
+**Achados centrais do TCC:**
+- O sinal é estável, mas modesto: ROC-AUC entre 0.76 e 0.91 e precisão de no
+  máximo 0.45. A LogisticRegression é o modelo mais estável, com recall entre
+  0.70 e 0.75.
+- **O 0.910 do GOV.BR é artefato de vazamento.** Cerca de 80% dos `.java` de
+  um fork DSpace são idênticos byte a byte aos de outro fork. Sem os folds 1 e
+  3, o RandomForest cai para 0.834, em linha com os outros corpora. Agrupar os
+  folds por repositório não basta: o grupo precisa ser a *linhagem de código*.
+- Os achados do Semgrep vêm sobretudo de arquivos que não são Java: YAML de CI
+  no OSS e um jQuery UI vendorizado no `siga`. Só 3,6% a 11,5% dos positivos
+  são marcados pelas duas SASTs ao mesmo tempo.
+- Importância no RandomForest: medidas estruturais 58–74%, OO 14–28% e
+  processo 12–18%. A complexidade cognitiva lidera no NSA e no OSS, e o
+  `ncloc` no GOV.BR.
+- Rodado em lote único, o CK falhou no Ghidra, e a cobertura OO do NSA ficou
+  em 26%. Rodado por raiz de módulo, cobriu 97% dos arquivos no OSS e no
+  GOV.BR.
 
 ---
 
@@ -229,7 +284,8 @@ pip install semgrep            # não está no requirements.txt
 Copy-Item .env.example .env    # editar GITHUB_TOKEN, SONAR_HOST_URL, SONAR_TOKEN
 
 # 5. Pipeline inteiro
-python scripts/run_all.py
+python scripts/run_all.py                          # Corpus 2 → data/, reports/
+python scripts/run_all_corpus.py --corpus govbr    # Corpus 3 → *_govbr/
 #   pular fases:      python scripts/run_all.py --skip clone
 #   só algumas fases: python scripts/run_all.py --only sonarqube,codeql,dataset,ml
 #   só ML:            python scripts/run_all.py --only ml   (requer security_dataset.csv)
@@ -240,7 +296,23 @@ qualquer diretório, mas assumem a raiz `github-metrics-analyzer/`.
 
 ---
 
-## 9. Artigo científico (`Artigo/`)
+## 9. Artigos
+
+### 9.1 Artigo do TCC (`Artigo_TCC/Real/`) — atual
+
+- Template **SciTePress** (ICISSP), em **inglês**, como exige o template do
+  orientador. Título: *"Predicting Security-Prone Java Files from Quality
+  Metrics: A Build-Free Three-Corpus Study and the Pitfall of Near-Duplicate
+  Forks"*.
+- `Artigo_TCC/Template/` é o template original e **não deve ser alterado**.
+  Os arquivos de estilo em `Real/` são cópias idênticas dele.
+- `references.bib` tem 44 referências, com metadados tirados do Crossref.
+- As figuras são geradas por `scripts/make_figures.py` a partir dos CSVs do
+  pipeline. Compile com pdfLaTeX, porque as figuras são PDF.
+- Situação: primeira versão no commit `9e38a99` ("precisa de ajustes"). Não há
+  LaTeX nesta máquina; compile no Overleaf.
+
+### 9.2 Artigo da AP2 (`Artigo/`) — só corpus NSA
 
 - Padrão **SBC** (6–10 páginas), pronto para Overleaf (pdfLaTeX).
 - `main.tex` já contém os números reais do estudo; estrutura obrigatória:
@@ -266,8 +338,15 @@ qualquer diretório, mas assumem a raiz `github-metrics-analyzer/`.
 - **Sem build/compilação** — respeitar sempre esse princípio ao mexer em coletas.
 - **Segurança:** nunca commitar tokens; `.env` está no `.gitignore`; escopo
   mínimo `public_repo`.
-- **Limitação de validade externa:** 4 dos 10 repos pertencem ao ecossistema
-  **DataWave** (variável de confusão) — mencionado nas limitações do artigo.
+- **Limitações de validade:** 4 dos 10 repos NSA pertencem ao ecossistema
+  **DataWave** (o que motivou o Corpus 2). No GOV.BR, forks DSpace quase
+  idênticos vazam informação entre os folds.
+- **Pastas por corpus:** nunca rode o Corpus 3 com o `run_all.py` puro, porque
+  ele grava no `data/` do Corpus 2. Use o `run_all_corpus.py`.
+- **Versionamento:** clones (`repos*/`), coletas parciais (`*/partial/`), logs
+  e as pastas `*_nsa/` e `*_govbr/` estão no `.gitignore`. Arquivos acima de
+  100 MB vão via Git LFS.
+- **Branches:** `main` é o estável; `Artigo_TCC` concentra o trabalho atual do TCC.
 - **Métrica não coletável** aparece como ausente/zero, **nunca estimada**.
 
 ---
@@ -281,6 +360,10 @@ qualquer diretório, mas assumem a raiz `github-metrics-analyzer/`.
 | Resumo técnico profundo (versões, decisões) | `github-metrics-analyzer/resumo.md` |
 | Versões exatas das ferramentas | `github-metrics-analyzer/TOOLS_VERSIONS.md` |
 | Dicionário de colunas do dataset | `github-metrics-analyzer/data/dataset_dictionary.md` |
-| Resultados comparativos + ML | `github-metrics-analyzer/reports/comparative_report.md` |
-| Artigo científico | `Artigo/main.tex`, `Artigo/README.md` |
+| Resultados comparativos + ML (OSS) | `github-metrics-analyzer/reports/comparative_report.md` |
+| Resultados GOV.BR / NSA | `github-metrics-analyzer/reports_govbr/`, `reports_nsa/` |
+| Critérios de seleção dos repositórios | `github-metrics-analyzer/CRITERIOS_SELECAO_REPOSITORIOS.md` |
+| Histórico da execução do Corpus 2 | `github-metrics-analyzer/RETOMAR_CORPUS2.md` |
+| Artigo do TCC (SciTePress) | `Artigo_TCC/Real/main.tex`, `Artigo_TCC/Real/README.md` |
+| Artigo da AP2 (SBC) | `Artigo/main.tex`, `Artigo/README.md` |
 ```
