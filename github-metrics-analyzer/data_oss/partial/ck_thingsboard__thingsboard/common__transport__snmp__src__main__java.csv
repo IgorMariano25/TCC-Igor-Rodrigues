@@ -1,0 +1,12 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/service/SnmpAuthService.java,7,1,0,20,38,0,0,2,0,2,0,1.0,1.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/SnmpTransportContext.java,39,2,0,31,98,28,0,15,0,10,0,0.1904762,0.1904762,2
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/event/SnmpTransportListChangedEvent.java,1,2,0,1,0,0,0,1,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/service/ProtoTransportEntityService.java,5,1,0,12,24,0,0,3,0,1,0,1.0,1.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/service/PduService.java,31,1,0,22,46,21,0,7,0,2,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/service/SnmpTransportService.java,62,1,0,53,140,110,0,23,0,20,0,0.22222222,0.2777778,4
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/event/SnmpTransportListChangedEventListener.java,1,2,0,6,1,0,0,1,0,1,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/event/ServiceListChangedEventListener.java,1,2,0,6,1,0,0,1,0,1,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/service/SnmpTransportBalancingService.java,11,1,0,11,23,2,0,4,0,5,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/session/ScheduledTask.java,7,1,0,5,10,1,0,3,0,2,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/snmp/src/main/java/org/thingsboard/server/transport/snmp/session/DeviceSessionContext.java,19,2,0,24,27,30,0,13,0,11,0,0.30769232,0.46153846,1

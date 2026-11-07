@@ -1,0 +1,8 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/SlowInitActor.java,6,3,0,6,3,1,0,5,0,2,0,1.0,1.0,2
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/FailedToInitActor.java,7,3,0,8,2,0,0,6,0,7,0,1.0,1.0,2
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/ActorTestCtx.java,1,1,0,2,2,0,0,1,0,4,0,0.0,0.0,1
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/IntTbActorMsg.java,2,1,0,3,0,1,0,2,0,1,0,0.0,0.0,1
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/TestRootActor.java,9,2,3,10,9,2,0,7,0,7,0,1.0,1.0,2
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/SlowCreateActor.java,5,3,0,5,6,0,0,4,0,4,1,1.0,1.0,2
+thingsboard/thingsboard,common/actor/src/test/java/org/thingsboard/server/actors/ActorSystemTest.java,24,1,0,19,49,0,0,14,0,7,3,1.0,1.0,1

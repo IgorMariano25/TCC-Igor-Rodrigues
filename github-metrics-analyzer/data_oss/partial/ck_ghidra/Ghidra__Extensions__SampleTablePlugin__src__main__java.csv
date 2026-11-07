@@ -1,0 +1,14 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples2/SampleSearchTableProvider.java,6,2,0,12,14,4,0,5,0,4,0,0.16666667,0.16666667,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/FunctionStatsRowObject.java,5,1,0,2,2,0,0,5,0,3,0,0.5,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples2/SampleSearcher.java,6,1,0,6,13,0,0,3,0,1,0,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples2/SearchResults.java,3,1,0,1,0,0,0,3,0,2,0,0.6666667,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/SampleTableModel.java,14,6,0,13,19,1,0,11,0,1,0,0.33333334,0.33333334,5
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples2/SampleSearchTablePlugin.java,8,2,0,8,7,4,0,6,0,1,0,0.33333334,0.33333334,2
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/ReferenceFunctionAlgorithm.java,5,1,0,10,13,3,0,3,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/SampleTableProvider.java,27,2,0,17,48,65,0,19,0,10,2,0.2,0.26666668,3
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/BasicBlockCounterFunctionAlgorithm.java,5,1,0,9,11,3,0,3,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/SizeFunctionAlgorithm.java,2,1,0,4,2,1,0,2,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/FunctionAlgorithm.java,2,1,0,3,0,1,0,2,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples2/SampleSearchTableModel.java,8,4,0,11,7,4,0,8,0,1,0,0.16666667,0.16666667,3
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SampleTablePlugin/src/main/java/ghidra/examples/SampleTablePlugin.java,8,2,0,9,8,7,0,7,0,2,0,0.33333334,0.33333334,1

@@ -1,0 +1,3 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,tools/src/main/java/org/thingsboard/client/tools/MqttSslClient.java,2,1,0,7,25,0,0,1,1,5,5,0.0,0.0,1
+thingsboard/thingsboard,tools/src/main/java/org/thingsboard/client/tools/i18n/TranslationPruner.java,14,1,0,6,23,3,0,3,3,0,0,0.0,0.0,1

@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/script/remote-js-client/src/main/java/org/thingsboard/server/service/script/JsExecutorService.java,1,2,0,3,1,0,0,1,0,1,0,0.0,0.0,1
+thingsboard/thingsboard,common/script/remote-js-client/src/main/java/org/thingsboard/server/service/script/RemoteJsResponseDecoder.java,1,1,0,5,8,0,0,1,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/script/remote-js-client/src/main/java/org/thingsboard/server/service/script/RemoteJsRequestEncoder.java,2,1,0,3,4,0,0,1,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/script/remote-js-client/src/main/java/org/thingsboard/server/service/script/RemoteJsInvokeService.java,31,2,0,26,62,30,0,13,0,10,0,0.23636363,0.27272728,1

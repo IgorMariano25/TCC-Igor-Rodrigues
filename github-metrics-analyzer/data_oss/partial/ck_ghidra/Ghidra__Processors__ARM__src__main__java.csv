@@ -1,0 +1,14 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/coff/relocation/ARM_CoffRelocationHandler.java,14,1,0,9,13,6,0,4,0,14,14,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/elf/relocation/ARM_ElfRelocationContext.java,4,2,0,5,1,0,0,2,0,1,0,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/elf/relocation/ARM_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/elf/extend/ARM_ElfProgramHeaderConstants.java,0,1,0,0,0,0,0,0,0,26,26,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/elf/relocation/ElfArmRelocationFixupHandler.java,16,2,0,7,11,3,0,3,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/program/emulation/ArmCpuState.java,14,1,0,0,0,77,0,14,0,7,0,0.07692308,0.07692308,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/elf/extend/ARM_ElfExtension.java,31,2,0,14,31,21,0,7,0,8,8,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/elf/relocation/ARM_ElfRelocationHandler.java,77,2,0,14,38,15,0,6,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/program/emulation/ARMEmulateInstructionStateModifier.java,14,2,0,7,15,0,0,3,0,4,0,1.0,1.0,2
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/program/emulation/ArmPcodeUseropLibraryFactory.java,16,2,0,8,11,6,0,14,0,3,0,0.46153846,0.46153846,2
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/plugin/core/analysis/ArmAnalyzer.java,206,2,0,33,186,78,0,32,0,16,5,0.2,0.42857143,3
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/macho/relocation/ARM_MachoRelocationConstants.java,0,1,0,0,0,0,0,0,0,10,10,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/ARM/src/main/java/ghidra/app/util/bin/format/macho/relocation/ARM_MachoRelocationHandler.java,24,2,0,6,9,3,0,3,0,0,0,0.0,0.0,1

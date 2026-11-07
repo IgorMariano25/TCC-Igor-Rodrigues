@@ -1,0 +1,4 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,msa/vc-executor/src/main/java/org/thingsboard/server/vc/service/VersionControlQueueRoutingInfoService.java,1,1,0,3,1,0,0,1,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,msa/vc-executor/src/main/java/org/thingsboard/server/vc/service/VersionControlTenantRoutingInfoService.java,1,1,0,4,0,0,0,1,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,msa/vc-executor/src/main/java/org/thingsboard/server/vc/ThingsboardVersionControlExecutorApplication.java,3,1,0,5,6,1,0,2,2,2,2,0.0,0.0,1

@@ -1,0 +1,17 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/AssetTypeFilterTest.java,7,2,0,21,44,9,0,7,2,5,0,0.5,0.5,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/AbstractEDQTest.java,28,1,14,45,42,147,0,22,0,7,0,0.18181819,0.33766234,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/DeviceTypeFilterTest.java,9,2,0,24,37,16,0,8,2,1,0,0.3,0.3,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EdgeSearchQueryFilterTest.java,4,2,0,14,23,6,0,4,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EntityListFilterTest.java,7,2,0,22,36,9,0,7,2,3,0,0.5,0.5,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EntityNameFilterTest.java,5,2,0,19,28,10,0,5,1,0,0,0.0,0.0,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EntityTypeFilterTest.java,8,2,0,25,40,16,0,8,3,3,0,0.5,0.5,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/RepositoryUtilsTest.java,44,1,0,21,45,946,0,44,26,0,0,0.0,0.0,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/SingleEntityFilterTest.java,5,2,0,19,29,10,0,5,1,0,0,0.0,0.0,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/DeviceSearchQueryFilterTest.java,4,2,0,16,27,4,0,4,0,1,0,0.33333334,0.33333334,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EdgeTypeFilterTest.java,7,2,0,20,43,9,0,7,2,3,0,0.5,0.5,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EntityViewSearchQueryFilterTest.java,4,2,0,14,26,6,0,4,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/EntityViewTypeFilterTest.java,7,2,0,20,42,9,0,7,2,3,0,0.5,0.5,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/RelationsQueryFilterTest.java,7,2,0,14,22,21,0,7,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/AssetSearchQueryFilterTest.java,4,2,0,16,24,4,0,4,0,1,0,0.33333334,0.33333334,1
+thingsboard/thingsboard,edqs/src/test/java/org/thingsboard/server/edqs/repo/ApiUsageStateFilterTest.java,5,2,0,17,33,10,0,5,1,0,0,0.0,0.0,1

@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/full/SymZ3DebuggerPcodeEmulatorTest.java,5,2,0,15,27,0,0,5,0,2,0,0.5,0.5,2
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/bugTest/SymZ3PcodeEmulatorBugTest.java,21,3,0,18,38,1,0,13,0,9,1,0.96363634,1.0,2
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/trace/SymZ3TracePcodeEmulatorTest.java,8,2,0,18,50,28,0,8,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Extensions/SymbolicSummaryZ3/src/test/java/ghidra/pcode/emu/symz3/plain/SymZ3PcodeEmulatorTest.java,17,3,0,21,41,1,0,15,0,9,1,0.67948717,0.7051282,2

@@ -1,0 +1,7 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/JVM/src/test/java/ghidra/javaclass/test/DescriptorDecoderTest.java,23,2,0,10,38,79,0,14,0,2,0,0.06593407,0.06593407,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/JVM/src/test/java/ghidra/app/util/pcodeInject/InvokeMethodsTest.java,8,2,0,11,27,0,0,8,0,3,0,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/JVM/src/test/java/ghidra/app/util/pcodeInject/LdcMethodsTest.java,8,2,0,10,25,0,0,8,0,4,1,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/JVM/src/test/java/ghidra/app/util/pcodeInject/ReferenceMethodsTest.java,9,2,0,10,29,0,0,9,0,3,0,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/JVM/src/test/java/ghidra/app/util/pcodeInject/TestClassFileCreator.java,31,1,0,12,16,300,0,25,24,12,12,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/JVM/src/test/java/ghidra/javaclass/test/MethodsInfoAccessFlagsTest.java,1,1,0,1,3,0,0,1,0,0,0,0.0,0.0,1

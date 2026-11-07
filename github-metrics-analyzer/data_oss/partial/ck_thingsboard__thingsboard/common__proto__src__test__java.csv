@@ -1,0 +1,4 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/proto/src/test/java/org/thingsboard/server/common/util/KvProtoUtilTest.java,11,1,0,17,23,25,0,10,4,1,1,0.06666667,0.06666667,1
+thingsboard/thingsboard,common/proto/src/test/java/org/thingsboard/server/common/adaptor/JsonConverterTest.java,13,1,0,5,11,78,0,13,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/proto/src/test/java/org/thingsboard/server/common/util/ProtoUtilsTest.java,23,1,0,51,53,4,0,20,1,7,2,0.53801167,0.53801167,1

@@ -1,0 +1,10 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/TestNearestVectorResult.java,18,2,0,8,8,91,0,17,2,0,0,0.0,0.0,2
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/SimilarFunctionQueryServiceTest.java,32,3,0,22,30,1,0,22,0,7,0,0.6666667,1.0,3
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/FunctionDatabaseTestDouble.java,24,1,0,14,7,188,0,21,1,8,2,0.052380953,0.08571429,1
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/TestSFQueryServiceFactory.java,2,2,0,5,0,0,0,2,0,1,0,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/TestSimilarityResult.java,4,2,0,4,5,3,0,3,2,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/TestSFQueryService.java,3,2,0,7,2,1,0,3,0,1,0,0.33333334,0.33333334,1
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/client/BSimServerInfoTest.java,10,2,0,5,8,45,0,10,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/client/BSimFunctionDatabaseTest.java,2,2,0,15,13,1,0,2,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/BSim/src/test/java/ghidra/features/bsim/query/facade/TestBSimServerInfo.java,2,2,0,2,0,0,0,2,0,1,0,1.0,1.0,1

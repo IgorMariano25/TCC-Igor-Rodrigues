@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/Xtensa/src/main/java/ghidra/program/emulation/XtensaPcodeUseropLibraryFactory.java,27,2,0,8,14,79,0,18,0,6,3,1.0,1.0,3
+NationalSecurityAgency/ghidra,Ghidra/Processors/Xtensa/src/main/java/ghidra/program/emulation/XtensaEmulateInstructionStateModifier.java,17,2,0,8,25,0,0,5,0,3,0,1.0,1.0,4
+NationalSecurityAgency/ghidra,Ghidra/Processors/Xtensa/src/main/java/ghidra/app/util/bin/format/elf/relocation/Xtensa_ElfRelocationHandler.java,29,2,0,10,12,3,0,3,0,1,1,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/Xtensa/src/main/java/ghidra/app/util/bin/format/elf/relocation/Xtensa_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1

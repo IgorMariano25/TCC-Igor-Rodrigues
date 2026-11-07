@@ -1,0 +1,10 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/TbScriptExceptionTest.java,2,1,0,5,4,1,0,2,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/tbel/TbUtilsTest.java,80,1,0,13,150,1237,0,54,2,8,0,0.07315234,0.086727,6
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/AbstractScriptInvokeServiceTest.java,7,1,0,6,28,0,0,7,0,4,0,1.0,1.0,1
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/tbel/TbDateConstructorTest.java,5,1,0,10,14,8,0,5,2,1,1,0.0,0.0,1
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/tbel/TbDateTestEntity.java,25,1,0,1,2,2,0,5,0,4,0,0.4,1.0,1
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/tbel/TbelCfTsRollingArgTest.java,17,1,0,6,33,0,0,17,0,2,0,0.5,0.5735294,1
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/tbel/TbDateTest.java,56,1,0,11,102,294,0,27,0,1,0,0.010869565,0.010869565,2
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/js/AbstractJsInvokeServiceTest.java,3,1,0,6,26,0,0,3,0,2,0,1.0,1.0,1
+thingsboard/thingsboard,common/script/script-api/src/test/java/org/thingsboard/script/api/js/JsValidatorTest.java,3,1,0,3,4,3,0,3,0,0,0,0.0,0.0,1

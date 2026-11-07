@@ -1,0 +1,2 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/GraphFunctionCalls/src/test/java/functioncalls/plugin/FcgFunction.java,7,2,0,5,5,15,0,7,0,3,0,0.14285715,0.14285715,1

@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/edge-api/src/main/java/org/thingsboard/edge/exception/EdgeConnectionException.java,2,4,0,0,0,1,0,2,0,1,1,0.0,0.0,1
+thingsboard/thingsboard,common/edge-api/src/main/java/org/thingsboard/edge/rpc/EdgeVersionComparator.java,20,1,0,3,12,6,0,4,3,1,1,0.0,0.0,1
+thingsboard/thingsboard,common/edge-api/src/main/java/org/thingsboard/edge/rpc/EdgeGrpcClient.java,41,1,0,28,73,29,0,14,3,20,1,0.4642857,0.75,2
+thingsboard/thingsboard,common/edge-api/src/main/java/org/thingsboard/edge/rpc/EdgeRpcClient.java,7,1,0,5,0,21,0,7,0,0,0,0.0,0.0,1

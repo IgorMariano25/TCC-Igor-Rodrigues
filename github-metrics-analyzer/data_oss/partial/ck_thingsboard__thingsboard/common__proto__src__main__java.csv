@@ -1,0 +1,7 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/proto/src/main/java/org/thingsboard/server/common/adaptor/ProtoConverter.java,31,1,0,25,53,78,0,13,13,1,1,0.0,0.0,1
+thingsboard/thingsboard,common/proto/src/main/java/org/thingsboard/server/common/util/ProtoUtils.java,276,1,0,89,484,2628,0,73,73,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/proto/src/main/java/org/thingsboard/server/common/adaptor/JsonConverterConfig.java,2,1,0,4,3,1,0,2,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/proto/src/main/java/org/thingsboard/server/common/adaptor/JsonConverter.java,156,1,0,40,143,1444,0,56,56,5,5,0.039215688,0.039215688,1
+thingsboard/thingsboard,common/proto/src/main/java/org/thingsboard/server/common/adaptor/AdaptorException.java,4,3,0,0,0,6,0,4,0,1,1,0.0,0.0,1
+thingsboard/thingsboard,common/proto/src/main/java/org/thingsboard/server/common/util/KvProtoUtil.java,34,1,0,13,32,105,0,15,15,1,1,0.0,0.0,1

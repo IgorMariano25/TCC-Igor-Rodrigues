@@ -1,0 +1,4 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,netty-mqtt/src/test/java/org/thingsboard/mqtt/MqttTestProxy.java,25,2,0,13,33,10,0,14,1,13,0,0.0,0.0,5
+thingsboard/thingsboard,netty-mqtt/src/test/java/org/thingsboard/mqtt/MqttClientTest.java,15,1,0,18,53,0,0,9,1,5,0,0.71428573,0.71428573,2
+thingsboard/thingsboard,netty-mqtt/src/test/java/org/thingsboard/mqtt/ReconnectStrategyExponentialTest.java,5,1,0,7,30,3,0,3,0,0,0,0.0,0.0,1

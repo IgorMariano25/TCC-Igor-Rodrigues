@@ -1,0 +1,17 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/demangler/RustDemanglerV0.java,336,3,0,8,122,153,0,71,18,14,3,1.0,1.0,8
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/RustConstants.java,0,1,0,2,2,0,0,0,0,6,6,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/demangler/RustDemanglerParser.java,26,1,0,5,28,8,0,11,0,8,1,0.33333334,0.33333334,3
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/RustDemanglerAnalyzer.java,28,4,0,18,48,20,0,22,0,18,10,0.2,0.2,4
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/demangler/RustDemanglerFormat.java,10,1,0,2,2,2,0,5,0,2,0,0.16666667,0.16666667,2
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/sourcelanguage/RustSourceLanguageSpecExtension.java,4,1,0,7,5,1,0,2,0,1,1,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/demangler/RustDemanglerOptions.java,8,2,0,3,6,3,0,6,0,2,0,0.4,0.4,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/sourcelanguage/RustSourceLanguage.java,5,1,3,9,7,1,0,3,0,1,1,0.0,0.0,2
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/demangler/RustDemanglerLegacy.java,27,1,0,1,20,0,0,2,2,1,1,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/sourcelanguage/PeRustSourceLanguage.java,5,2,0,3,6,0,0,1,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/sourcelanguage/RustSourceLanguageDataArchive.java,4,1,0,7,5,1,0,2,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/demangler/RustDemangler.java,22,1,0,11,16,21,0,7,1,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/plugin/core/analysis/rust/RustStringAnalyzer.java,15,2,0,9,19,21,0,7,2,2,2,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/sourcelanguage/ElfRustSourceLanguage.java,8,2,0,4,11,0,0,1,0,1,1,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/bin/format/dwarf/funcfixup/RustDWARFFunctionFixup.java,7,1,0,8,9,1,0,2,0,1,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/Rust/src/main/java/ghidra/app/util/sourcelanguage/MachoRustSourceLanguage.java,6,2,0,3,7,0,0,1,0,0,0,0.0,0.0,1

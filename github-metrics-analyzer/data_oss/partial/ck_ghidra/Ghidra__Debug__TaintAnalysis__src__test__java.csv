@@ -1,0 +1,4 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Debug/TaintAnalysis/src/test/java/ghidra/pcode/emu/taint/full/TaintDebuggerPcodeEmulatorTest.java,6,2,0,24,57,0,0,6,0,3,0,0.6,0.6,2
+NationalSecurityAgency/ghidra,Ghidra/Debug/TaintAnalysis/src/test/java/ghidra/pcode/emu/taint/plain/TaintPcodeEmulatorTest.java,19,3,0,21,57,1,0,15,0,10,1,0.7307692,0.84615386,2
+NationalSecurityAgency/ghidra,Ghidra/Debug/TaintAnalysis/src/test/java/ghidra/pcode/emu/taint/trace/TaintTracePcodeEmulatorTest.java,16,2,0,30,77,66,0,12,2,0,0,0.0,0.0,1

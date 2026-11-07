@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/coap-server/src/test/java/org/thingsboard/server/coapserver/CoapDtlsCertificateReloadIntegrationTest.java,17,2,0,25,68,66,0,15,0,4,2,1.0,1.0,2
+thingsboard/thingsboard,common/coap-server/src/test/java/org/thingsboard/server/coapserver/CoapDtlsCertificateReloadTest.java,8,1,0,17,40,0,0,8,0,6,0,1.0,1.0,1
+thingsboard/thingsboard,common/coap-server/src/test/java/org/thingsboard/server/coapserver/TbCoapDtlsSettingsTest.java,1,1,0,9,11,0,0,1,0,4,0,0.0,0.0,1
+thingsboard/thingsboard,common/coap-server/src/test/java/org/thingsboard/server/coapserver/DefaultCoapServerServiceTest.java,6,1,0,19,39,0,0,4,0,5,1,0.6666667,1.0,1

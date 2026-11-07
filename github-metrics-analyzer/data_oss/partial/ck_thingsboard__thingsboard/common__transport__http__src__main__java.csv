@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/transport/http/src/main/java/org/thingsboard/server/transport/http/DeviceApiController.java,49,1,0,37,84,1,0,32,1,23,6,1.0,1.0,7
+thingsboard/thingsboard,common/transport/http/src/main/java/org/thingsboard/server/transport/http/HttpTransportContext.java,2,2,0,10,3,0,0,1,0,2,0,0.0,0.0,1
+thingsboard/thingsboard,common/transport/http/src/main/java/org/thingsboard/server/transport/http/config/TransportSecurityConfiguration.java,2,1,0,11,10,1,0,2,0,2,1,0.0,0.0,1
+thingsboard/thingsboard,common/transport/http/src/main/java/org/thingsboard/server/transport/http/config/PayloadSizeFilter.java,12,2,0,9,19,13,0,6,0,2,0,0.16666667,0.16666667,1

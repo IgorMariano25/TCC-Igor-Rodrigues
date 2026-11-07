@@ -1,0 +1,9 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/geo/PerimeterDefinitionSerializerTest.java,2,1,0,5,9,1,0,2,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/LinkedHashMapRemoveEldestTest.java,4,1,0,2,12,0,0,2,0,2,1,1.0,1.0,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/geo/PerimeterDefinitionDeserializerTest.java,5,1,0,5,15,10,0,5,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/SsrfProtectionValidatorTest.java,42,1,0,4,24,861,0,42,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/JacksonUtilTest.java,4,1,0,7,23,6,0,4,0,0,0,0.0,0.0,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/NumberUtilsTest.java,6,1,0,1,11,0,0,6,0,2,0,0.6666667,0.6666667,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/ThingsBoardScheduledThreadPoolExecutorTest.java,10,1,0,5,18,0,0,6,0,1,0,1.0,1.0,1
+thingsboard/thingsboard,common/util/src/test/java/org/thingsboard/common/util/ExceptionUtilTest.java,7,1,0,1,4,3,0,6,0,1,0,0.2,0.2,1

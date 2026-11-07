@@ -1,0 +1,2 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/PowerPC/src/test/java/ghidra/program/emulation/PpcPcodeUseropLibraryTest.java,7,2,0,7,14,0,0,6,0,2,2,1.0,1.0,1

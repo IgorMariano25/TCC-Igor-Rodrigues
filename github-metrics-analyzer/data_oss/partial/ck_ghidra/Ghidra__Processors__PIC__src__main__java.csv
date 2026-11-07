@@ -1,0 +1,12 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/Pic16Analyzer.java,19,2,0,13,33,3,0,8,0,11,3,0.0,0.0,2
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/Pic17c7xxAnalyzer.java,258,2,0,32,109,131,0,23,0,33,15,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/Pic18Analyzer.java,113,2,0,31,92,71,0,15,0,21,12,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/Pic12Analyzer.java,140,2,0,23,79,57,0,15,0,30,14,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/util/bin/format/elf/extend/PIC30_ElfExtension.java,54,7,0,13,28,153,0,24,0,27,23,1.0,1.0,3
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/util/bin/format/elf/relocation/PIC30_ElfRelocationContext.java,5,2,0,7,7,3,0,3,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/PicSwitchAnalyzer.java,58,2,0,19,43,27,0,11,1,10,4,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/util/bin/format/elf/relocation/PIC30_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/Pic24DInitAnalyzer.java,17,2,0,20,35,3,0,3,0,4,4,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/plugin/core/analysis/PicProcessor.java,1,1,0,1,1,0,0,1,0,4,4,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/PIC/src/main/java/ghidra/app/util/bin/format/elf/relocation/PIC30_ElfRelocationHandler.java,19,2,0,13,17,4,0,5,0,1,0,0.0,0.0,1

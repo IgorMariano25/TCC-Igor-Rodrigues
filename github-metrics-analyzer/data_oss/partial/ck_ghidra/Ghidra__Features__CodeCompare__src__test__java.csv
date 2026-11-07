@@ -1,0 +1,4 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/CodeCompare/src/test/java/ghidra/features/codecompare/decompile/DualDecompilerActionTest.java,19,3,0,18,46,0,0,15,0,15,8,0.8,0.8,1
+NationalSecurityAgency/ghidra,Ghidra/Features/CodeCompare/src/test/java/ghidra/features/codecompare/decompile/AbstractDualDecompilerTest.java,12,2,1,19,27,32,0,9,0,4,0,0.055555556,0.083333336,1
+NationalSecurityAgency/ghidra,Ghidra/Features/CodeCompare/src/test/java/ghidra/features/codecompare/plugin/CompareFunctionsProviderTest.java,21,2,0,28,70,0,0,20,0,10,0,0.8484849,1.0,1

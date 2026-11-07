@@ -1,0 +1,6 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/Sparc/src/main/java/ghidra/app/plugin/core/analysis/SparcEarlyAddressAnalyzer.java,10,3,0,10,15,1,0,2,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/Sparc/src/main/java/ghidra/app/util/bin/format/elf/relocation/SPARC64_ElfRelocationHandler.java,17,3,0,10,18,1,0,2,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/Sparc/src/main/java/ghidra/app/util/bin/format/elf/relocation/SPARC_ElfRelocationHandler.java,45,2,1,10,16,3,0,3,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/Sparc/src/main/java/ghidra/app/util/bin/format/elf/relocation/SPARC_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/Sparc/src/main/java/ghidra/app/plugin/core/analysis/SparcAnalyzer.java,21,2,1,11,41,6,0,7,0,5,4,0.2,0.2,2

@@ -1,0 +1,5 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/FunctionGraphDecompilerExtension/src/main/java/ghidra/app/plugin/core/functiongraph/graph/layout/DecompilerNestedLayout.java,223,24,0,48,186,543,0,105,0,30,6,0.6388889,1.0,16
+NationalSecurityAgency/ghidra,Ghidra/Features/FunctionGraphDecompilerExtension/src/main/java/ghidra/app/plugin/core/functiongraph/graph/layout/DecompilerNestedLayoutProvider.java,6,2,0,10,2,13,0,6,0,2,2,0.06666667,0.06666667,1
+NationalSecurityAgency/ghidra,Ghidra/Features/FunctionGraphDecompilerExtension/src/main/java/ghidra/app/plugin/core/functiongraph/graph/layout/DNLayoutOptions.java,5,1,0,3,3,0,0,5,0,7,5,0.7,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/FunctionGraphDecompilerExtension/src/main/java/ghidra/app/plugin/core/functiongraph/graph/layout/DNLEdgeLabelRenderer.java,11,1,0,14,35,1,0,3,0,3,1,1.0,1.0,1

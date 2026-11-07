@@ -1,0 +1,12 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/NeighborGenerator.java,38,7,13,7,36,4,0,16,0,6,1,0.0,0.0,8
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/BinningSystem.java,14,1,0,6,15,0,0,4,0,3,0,1.0,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/NamespaceNeighborhood.java,18,2,0,12,26,7,0,7,0,8,0,1.0,1.0,2
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/BSimProgramCorrelator.java,32,3,0,32,79,15,0,13,3,9,3,1.0,1.0,3
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/PotentialPair.java,8,1,0,3,1,10,0,8,0,5,1,0.32142857,0.5714286,1
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/FunctionPair.java,20,1,0,5,13,0,0,9,0,4,0,0.6666667,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/BSimProgramCorrelatorFactory.java,6,2,0,9,5,13,0,6,0,14,14,0.06666667,0.06666667,1
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/BSimProgramCorrelatorMatching.java,107,1,0,34,117,69,0,19,5,15,1,0.6666667,1.0,3
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/FunctionNode.java,27,1,0,5,15,103,0,19,1,9,0,0.19883041,0.8947368,1
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/api/FunctionNodeContainer.java,15,1,0,6,16,0,0,6,0,2,0,0.7,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/VersionTrackingBSim/src/main/java/ghidra/feature/vt/gui/validator/DecompilerParameterIDVTPreconditionValidator.java,2,2,0,5,0,1,0,2,0,0,0,0.0,0.0,1

@@ -1,0 +1,7 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Processors/RISCV/src/main/java/ghidra/app/util/bin/format/elf/relocation/RISCV_ElfRelocationContext.java,12,2,0,6,8,1,0,3,0,1,1,0.0,0.0,2
+NationalSecurityAgency/ghidra,Ghidra/Processors/RISCV/src/main/java/ghidra/program/emulation/RISCVEmulateInstructionStateModifier.java,3,2,0,5,0,3,0,3,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/RISCV/src/main/java/ghidra/app/util/bin/format/elf/extend/RISCV_ElfExtension.java,7,2,0,5,10,3,0,3,0,2,2,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/RISCV/src/main/java/ghidra/app/plugin/core/analysis/RISCVAddressAnalyzer.java,14,2,0,16,25,0,0,7,0,6,3,1.0,1.0,2
+NationalSecurityAgency/ghidra,Ghidra/Processors/RISCV/src/main/java/ghidra/app/util/bin/format/elf/relocation/RISCV_ElfRelocationHandler.java,64,2,0,12,40,78,0,13,8,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Processors/RISCV/src/main/java/ghidra/app/util/bin/format/elf/relocation/RISCV_ElfRelocationType.java,2,1,0,0,0,0,0,2,0,1,0,0.0,0.0,1

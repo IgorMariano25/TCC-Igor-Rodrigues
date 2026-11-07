@@ -1,0 +1,15 @@
+repository,file,wmc,dit,noc,cbo,rfc,lcom,lcom_star,num_methods,num_static_methods,num_fields,num_static_fields,tcc,lcc,num_classes
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/exception/StartedGhidraProcessExitedException.java,1,3,0,0,0,0,0,1,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/ipc/GhidraGoIPC.java,13,1,2,2,16,10,0,5,1,5,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/GhidraGoSender.java,13,2,0,4,22,21,0,7,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/exception/FailedToStartGhidraException.java,0,3,0,0,0,0,0,0,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/dialog/GhidraGoWaitDialog.java,11,2,1,5,22,4,0,7,0,4,2,0.3,0.3,3
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/exception/StopWaitingException.java,0,3,0,0,0,0,0,0,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/GhidraGo.java,22,1,0,9,32,4,0,4,0,1,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/exception/UnableToGetLockException.java,0,3,0,0,0,0,0,0,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/dialog/GhidraGoWaitForListenerDialog.java,1,3,0,1,0,0,0,1,0,0,0,0.0,0.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/GhidraGoPlugin.java,9,2,0,9,12,8,0,5,0,1,0,0.1,0.1,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/ipc/CheckForListenerRunnable.java,21,2,0,5,13,1,0,6,0,6,3,0.6666667,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/ipc/CheckPeriodicallyRunnable.java,5,1,2,1,4,0,0,5,0,6,1,0.6,0.6,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/ipc/CheckForFileProcessedRunnable.java,15,2,0,4,12,0,0,5,0,5,3,0.6666667,1.0,1
+NationalSecurityAgency/ghidra,Ghidra/Features/GhidraGo/src/main/java/ghidra/app/plugin/core/go/ipc/GhidraGoListener.java,24,2,0,2,30,6,0,5,0,3,1,0.6666667,1.0,1
