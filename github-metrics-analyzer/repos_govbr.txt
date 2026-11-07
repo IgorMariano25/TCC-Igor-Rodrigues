@@ -1,0 +1,16 @@
+# Corpus 3 — 10 repositórios Java do setor público brasileiro.
+# Escolhidos exclusivamente da lista fornecida pelo autor do estudo.
+# projetos-codic-ibict/dataverse é analisado no branch master (ver
+# BRANCH_OVERRIDES em scripts/clone_repositories.py).
+# Executado com: python scripts/run_all_corpus.py --corpus govbr
+
+demoiselle/framework
+demoiselle/signer
+demoiselle/behave
+demoiselle/certificate
+projetos-codic-ibict/deposita-dspace
+projetos-codic-ibict/evidencia-dspace
+projetos-codic-ibict/miguilim-dspace
+projetos-codic-ibict/dataverse
+lexml/eta-backend-services
+projeto-siga/siga

@@ -41,6 +41,13 @@ data_nsa_stale/
 data_corpus2_run1/
 reports_corpus2_run1/
 
+# Corpus 3 (repositórios do governo, repos_govbr.txt), executado por
+# scripts/run_all_corpus.py --corpus govbr em pastas próprias, para não tocar
+# em repos/, data/ e reports/ do Corpus 2.
+repos_govbr/
+data_govbr/
+reports_govbr/
+
 # Logs de execução do pipeline (~13 MB). São artefatos reproduzíveis: cada
 # execução os regrava, e os números que importam já estão nos CSVs de data/
 # e reports/. O RUN_LOG.md é gerado por collect_native_resumable.py e foi
