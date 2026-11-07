@@ -1,0 +1,508 @@
+% =====================================================================
+% References. Bibliographic data for every entry with a DOI was taken
+% from the Crossref record of that DOI (retrieved 2026-11-07); entries
+% without DOI (NeurIPS, JMLR, USENIX) were checked against OpenAlex or
+% arXiv. The apalike style ignores the doi field; it is kept for
+% traceability. Braces protect capitalisation (apalike lowercases titles).
+% =====================================================================
+
+% ---------------------------------------------------------------- standards
+@manual{iso25010,
+  author       = {{ISO/IEC}},
+  title        = {{ISO/IEC} 25010:2023 Systems and Software Engineering --
+                  Systems and Software Quality Requirements and Evaluation
+                  ({SQuaRE}) -- Product Quality Model},
+  organization = {International Organization for Standardization},
+  address      = {Geneva},
+  year         = {2023}
+}
+
+@manual{iso25010old,
+  author       = {{ISO/IEC}},
+  title        = {{ISO/IEC} 25010:2011 Systems and Software Engineering --
+                  Systems and Software Quality Requirements and Evaluation
+                  ({SQuaRE}) -- System and Software Quality Models},
+  organization = {International Organization for Standardization},
+  address      = {Geneva},
+  year         = {2011}
+}
+
+@manual{iso25023,
+  author       = {{ISO/IEC}},
+  title        = {{ISO/IEC} 25023:2016 Systems and Software Engineering --
+                  Systems and Software Quality Requirements and Evaluation
+                  ({SQuaRE}) -- Measurement of System and Software Product
+                  Quality},
+  organization = {International Organization for Standardization},
+  address      = {Geneva},
+  year         = {2016}
+}
+
+% ------------------------------------------------------------------ metrics
+@article{mccabe1976,
+  author  = {McCabe, T. J.},
+  title   = {A Complexity Measure},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {SE-2},
+  number  = {4},
+  pages   = {308--320},
+  year    = {1976},
+  doi     = {10.1109/TSE.1976.233837}
+}
+
+@article{chidamber1994,
+  author  = {Chidamber, S. R. and Kemerer, C. F.},
+  title   = {A Metrics Suite for Object Oriented Design},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {20},
+  number  = {6},
+  pages   = {476--493},
+  year    = {1994},
+  doi     = {10.1109/32.295895}
+}
+
+@inproceedings{campbell2018,
+  author    = {Campbell, G. Ann},
+  title     = {Cognitive Complexity: An Overview and Evaluation},
+  booktitle = {Proceedings of the 2018 International Conference on Technical
+               Debt},
+  pages     = {57--58},
+  publisher = {ACM},
+  year      = {2018},
+  doi       = {10.1145/3194164.3194186}
+}
+
+@inproceedings{spadini2018,
+  author    = {Spadini, Davide and Aniche, Maur{\'\i}cio and Bacchelli, Alberto},
+  title     = {{PyDriller}: {Python} Framework for Mining Software Repositories},
+  booktitle = {Proceedings of the 26th ACM Joint Meeting on European Software
+               Engineering Conference and Symposium on the Foundations of
+               Software Engineering (ESEC/FSE)},
+  pages     = {908--911},
+  publisher = {ACM},
+  year      = {2018},
+  doi       = {10.1145/3236024.3264598}
+}
+
+% --------------------------------------------------- vulnerability prediction
+@article{shin2011,
+  author  = {Shin, Yonghee and Meneely, Andrew and Williams, Laurie and
+             Osborne, Jason A.},
+  title   = {Evaluating Complexity, Code Churn, and Developer Activity Metrics
+             as Indicators of Software Vulnerabilities},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {37},
+  number  = {6},
+  pages   = {772--787},
+  year    = {2011},
+  doi     = {10.1109/TSE.2010.81}
+}
+
+@inproceedings{zimmermann2010,
+  author    = {Zimmermann, Thomas and Nagappan, Nachiappan and Williams, Laurie},
+  title     = {Searching for a Needle in a Haystack: Predicting Security
+               Vulnerabilities for {Windows Vista}},
+  booktitle = {Third International Conference on Software Testing,
+               Verification and Validation (ICST)},
+  pages     = {421--428},
+  publisher = {IEEE},
+  year      = {2010},
+  doi       = {10.1109/ICST.2010.32}
+}
+
+@article{chowdhury2011,
+  author  = {Chowdhury, Istehad and Zulkernine, Mohammad},
+  title   = {Using Complexity, Coupling, and Cohesion Metrics as Early
+             Indicators of Vulnerabilities},
+  journal = {Journal of Systems Architecture},
+  volume  = {57},
+  number  = {3},
+  pages   = {294--313},
+  year    = {2011},
+  doi     = {10.1016/j.sysarc.2010.06.003}
+}
+
+@inproceedings{walden2014,
+  author    = {Walden, James and Stuckman, Jeff and Scandariato, Riccardo},
+  title     = {Predicting Vulnerable Components: Software Metrics vs Text Mining},
+  booktitle = {IEEE 25th International Symposium on Software Reliability
+               Engineering (ISSRE)},
+  pages     = {23--33},
+  publisher = {IEEE},
+  year      = {2014},
+  doi       = {10.1109/ISSRE.2014.32}
+}
+
+@article{scandariato2014,
+  author  = {Scandariato, Riccardo and Walden, James and Hovsepyan, Aram and
+             Joosen, Wouter},
+  title   = {Predicting Vulnerable Software Components via Text Mining},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {40},
+  number  = {10},
+  pages   = {993--1006},
+  year    = {2014},
+  doi     = {10.1109/TSE.2014.2340398}
+}
+
+@inproceedings{morrison2015,
+  author    = {Morrison, Patrick and Herzig, Kim and Murphy, Brendan and
+               Williams, Laurie},
+  title     = {Challenges with Applying Vulnerability Prediction Models},
+  booktitle = {Proceedings of the 2015 Symposium and Bootcamp on the Science of
+               Security (HotSoS)},
+  pages     = {1--9},
+  publisher = {ACM},
+  year      = {2015},
+  doi       = {10.1145/2746194.2746198}
+}
+
+@inproceedings{jimenez2019,
+  author    = {Jimenez, Matthieu and Rwemalika, Renaud and Papadakis, Mike and
+               Sarro, Federica and Le Traon, Yves and Harman, Mark},
+  title     = {The Importance of Accounting for Real-World Labelling when
+               Predicting Software Vulnerabilities},
+  booktitle = {Proceedings of the 27th ACM Joint Meeting on European Software
+               Engineering Conference and Symposium on the Foundations of
+               Software Engineering (ESEC/FSE)},
+  pages     = {695--705},
+  publisher = {ACM},
+  year      = {2019},
+  doi       = {10.1145/3338906.3338941}
+}
+
+@inproceedings{hein2016,
+  author    = {Hein, Daniel and Saiedian, Hossein},
+  title     = {Predicting Attack Prone Software Components using Repository
+               Mined Change Metrics},
+  booktitle = {Proceedings of the 2nd International Conference on Information
+               Systems Security and Privacy (ICISSP)},
+  pages     = {554--563},
+  publisher = {SCITEPRESS},
+  year      = {2016},
+  doi       = {10.5220/0005812905540563}
+}
+
+@article{siavvas2020,
+  author  = {Siavvas, Miltiadis and Tsoukalas, Dimitrios and Jankovic, Marija
+             and Kehagias, Dionysios and Tzovaras, Dimitrios},
+  title   = {Technical Debt as an Indicator of Software Security Risk: A
+             Machine Learning Approach for Software Development Enterprises},
+  journal = {Enterprise Information Systems},
+  volume  = {16},
+  number  = {5},
+  year    = {2020},
+  doi     = {10.1080/17517575.2020.1824017}
+}
+
+@inproceedings{dou2026,
+  author    = {Dou, Xuhui and Bah{\c{s}}i, Hayretdin and Guerra-Manzanares,
+               Alejandro},
+  title     = {Enhancing Continual Learning for Software Vulnerability
+               Prediction: Addressing Catastrophic Forgetting via
+               Hybrid-Confidence-Aware Selective Replay for Temporal {LLM}
+               Fine-Tuning},
+  booktitle = {Proceedings of the 12th International Conference on Information
+               Systems Security and Privacy (ICISSP)},
+  pages     = {474--485},
+  publisher = {SCITEPRESS},
+  year      = {2026},
+  doi       = {10.5220/0014640400004061}
+}
+
+% ------------------------------------------------------------ static analysis
+@inproceedings{li2023,
+  author    = {Li, Kaixuan and Chen, Sen and Fan, Lingling and Feng, Ruitao and
+               Liu, Han and Liu, Chengwei and Liu, Yang and Chen, Yixiang},
+  title     = {Comparison and Evaluation on Static Application Security Testing
+               ({SAST}) Tools for {Java}},
+  booktitle = {Proceedings of the 31st ACM Joint European Software Engineering
+               Conference and Symposium on the Foundations of Software
+               Engineering (ESEC/FSE)},
+  pages     = {921--933},
+  publisher = {ACM},
+  year      = {2023},
+  doi       = {10.1145/3611643.3616262}
+}
+
+@inproceedings{johnson2013,
+  author    = {Johnson, Brittany and Song, Yoonki and Murphy-Hill, Emerson and
+               Bowdidge, Robert},
+  title     = {Why Don't Software Developers Use Static Analysis Tools to Find
+               Bugs?},
+  booktitle = {35th International Conference on Software Engineering (ICSE)},
+  pages     = {672--681},
+  publisher = {IEEE},
+  year      = {2013},
+  doi       = {10.1109/ICSE.2013.6606613}
+}
+
+@article{nguyenduc2021,
+  author  = {Nguyen-Duc, Anh and Do, Manh Viet and Luong Hong, Quan and
+             Nguyen Khac, Kiem and Nguyen Quang, Anh},
+  title   = {On the Adoption of Static Analysis for Software Security
+             Assessment -- A Case Study of an Open-Source e-Government Project},
+  journal = {Computers \& Security},
+  volume  = {111},
+  pages   = {102470},
+  year    = {2021},
+  doi     = {10.1016/j.cose.2021.102470}
+}
+
+@inproceedings{pashchenko2018,
+  author    = {Pashchenko, Ivan and Plate, Henrik and Ponta, Serena Elisa and
+               Sabetta, Antonino and Massacci, Fabio},
+  title     = {Vulnerable Open Source Dependencies: Counting Those that Matter},
+  booktitle = {Proceedings of the 12th ACM/IEEE International Symposium on
+               Empirical Software Engineering and Measurement (ESEM)},
+  pages     = {1--10},
+  publisher = {ACM},
+  year      = {2018},
+  doi       = {10.1145/3239235.3268920}
+}
+
+@inproceedings{meli2019,
+  author    = {Meli, Michael and McNiece, Matthew R. and Reaves, Bradley},
+  title     = {How Bad Can It Git? Characterizing Secret Leakage in Public
+               {GitHub} Repositories},
+  booktitle = {Network and Distributed System Security Symposium (NDSS)},
+  publisher = {Internet Society},
+  year      = {2019},
+  doi       = {10.14722/ndss.2019.23418}
+}
+
+@inproceedings{lounici2021,
+  author    = {Lounici, Sofiane and Rosa, Marco and Negri, Carlo and
+               Trabelsi, Slim and {\"O}nen, Melek},
+  title     = {Optimizing Leak Detection in Open-Source Platforms with Machine
+               Learning Techniques},
+  booktitle = {Proceedings of the 7th International Conference on Information
+               Systems Security and Privacy (ICISSP)},
+  pages     = {145--159},
+  publisher = {SCITEPRESS},
+  year      = {2021},
+  doi       = {10.5220/0010238101450159}
+}
+
+% -------------------------------------------------- data quality and leakage
+@inproceedings{kalliamvakou2014,
+  author    = {Kalliamvakou, Eirini and Gousios, Georgios and Blincoe, Kelly and
+               Singer, Leif and German, Daniel M. and Damian, Daniela},
+  title     = {The Promises and Perils of Mining {GitHub}},
+  booktitle = {Proceedings of the 11th Working Conference on Mining Software
+               Repositories (MSR)},
+  pages     = {92--101},
+  publisher = {ACM},
+  year      = {2014},
+  doi       = {10.1145/2597073.2597074}
+}
+
+@article{lopes2017,
+  author  = {Lopes, Cristina V. and Maj, Petr and Martins, Pedro and Saini,
+             Vaibhav and Yang, Di and Zitny, Jakub and Sajnani, Hitesh and
+             Vitek, Jan},
+  title   = {{D{\'e}j{\`a}Vu}: A Map of Code Duplicates on {GitHub}},
+  journal = {Proceedings of the ACM on Programming Languages},
+  volume  = {1},
+  number  = {OOPSLA},
+  pages   = {1--28},
+  year    = {2017},
+  doi     = {10.1145/3133908}
+}
+
+@inproceedings{allamanis2019,
+  author    = {Allamanis, Miltiadis},
+  title     = {The Adverse Effects of Code Duplication in Machine Learning
+               Models of Code},
+  booktitle = {Proceedings of the 2019 ACM SIGPLAN International Symposium on
+               New Ideas, New Paradigms, and Reflections on Programming and
+               Software (Onward!)},
+  pages     = {143--153},
+  publisher = {ACM},
+  year      = {2019},
+  doi       = {10.1145/3359591.3359735}
+}
+
+@inproceedings{croft2023,
+  author    = {Croft, Roland and Babar, M. Ali and Kholoosi, M. Mehdi},
+  title     = {Data Quality for Software Vulnerability Datasets},
+  booktitle = {IEEE/ACM 45th International Conference on Software Engineering
+               (ICSE)},
+  pages     = {121--133},
+  publisher = {IEEE},
+  year      = {2023},
+  doi       = {10.1109/ICSE48619.2023.00022}
+}
+
+@article{chakraborty2022,
+  author  = {Chakraborty, Saikat and Krishna, Rahul and Ding, Yangruibo and
+             Ray, Baishakhi},
+  title   = {Deep Learning Based Vulnerability Detection: Are We There Yet?},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {48},
+  number  = {9},
+  pages   = {3280--3296},
+  year    = {2022},
+  doi     = {10.1109/TSE.2021.3087402}
+}
+
+@article{tantithamthavorn2017,
+  author  = {Tantithamthavorn, Chakkrit and McIntosh, Shane and Hassan, Ahmed E.
+             and Matsumoto, Kenichi},
+  title   = {An Empirical Comparison of Model Validation Techniques for Defect
+             Prediction Models},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {43},
+  number  = {1},
+  pages   = {1--18},
+  year    = {2017},
+  doi     = {10.1109/TSE.2016.2584050}
+}
+
+@inproceedings{arp2022,
+  author    = {Arp, Daniel and Quiring, Erwin and Pendlebury, Feargus and
+               Warnecke, Alexander and Pierazzi, Fabio and Wressnegger,
+               Christian and Cavallaro, Lorenzo and Rieck, Konrad},
+  title     = {Dos and Don'ts of Machine Learning in Computer Security},
+  booktitle = {31st USENIX Security Symposium (USENIX Security 22)},
+  publisher = {USENIX Association},
+  year      = {2022}
+}
+
+@inproceedings{rosay2022,
+  author    = {Rosay, Arnaud and Cheval, Elo{\"\i}se and Carlier, Florent and
+               Leroux, Pascal},
+  title     = {Network Intrusion Detection: A Comprehensive Analysis of
+               {CIC-IDS2017}},
+  booktitle = {Proceedings of the 8th International Conference on Information
+               Systems Security and Privacy (ICISSP)},
+  pages     = {25--36},
+  publisher = {SCITEPRESS},
+  year      = {2022},
+  doi       = {10.5220/0010774000003120}
+}
+
+@inproceedings{kita2025,
+  author    = {Kita, Kentaro and Gempei, Yuta and Mimoto, Tomoaki and Isohara,
+               Takamasa and Kiyomoto, Shinsaku and Tanaka, Toshiaki},
+  title     = {Prioritization of Exploit Codes on {GitHub} for Better
+               Vulnerability Triage},
+  booktitle = {Proceedings of the 11th International Conference on Information
+               Systems Security and Privacy (ICISSP)},
+  pages     = {27--38},
+  publisher = {SCITEPRESS},
+  year      = {2025},
+  doi       = {10.5220/0013100800003899}
+}
+
+% ---------------------------------------------------------- machine learning
+@article{chawla2002,
+  author  = {Chawla, N. V. and Bowyer, K. W. and Hall, L. O. and
+             Kegelmeyer, W. P.},
+  title   = {{SMOTE}: Synthetic Minority Over-Sampling Technique},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {16},
+  pages   = {321--357},
+  year    = {2002},
+  doi     = {10.1613/jair.953}
+}
+
+@article{breiman2001,
+  author  = {Breiman, Leo},
+  title   = {Random Forests},
+  journal = {Machine Learning},
+  volume  = {45},
+  number  = {1},
+  pages   = {5--32},
+  year    = {2001},
+  doi     = {10.1023/A:1010933404324}
+}
+
+@inproceedings{chen2016,
+  author    = {Chen, Tianqi and Guestrin, Carlos},
+  title     = {{XGBoost}: A Scalable Tree Boosting System},
+  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on
+               Knowledge Discovery and Data Mining (KDD)},
+  pages     = {785--794},
+  publisher = {ACM},
+  year      = {2016},
+  doi       = {10.1145/2939672.2939785}
+}
+
+@inproceedings{ke2017,
+  author    = {Ke, Guolin and Meng, Qi and Finley, Thomas and Wang, Taifeng and
+               Chen, Wei and Ma, Weidong and Ye, Qiwei and Liu, Tie-Yan},
+  title     = {{LightGBM}: A Highly Efficient Gradient Boosting Decision Tree},
+  booktitle = {Advances in Neural Information Processing Systems 30 (NIPS)},
+  year      = {2017}
+}
+
+@article{pedregosa2011,
+  author  = {Pedregosa, Fabian and Varoquaux, Ga{\"e}l and Gramfort, Alexandre
+             and Michel, Vincent and Thirion, Bertrand and Grisel, Olivier and
+             Blondel, Mathieu and Prettenhofer, Peter and Weiss, Ron and
+             Dubourg, Vincent and Vanderplas, Jake and Passos, Alexandre and
+             Cournapeau, David and Brucher, Matthieu and Perrot, Matthieu and
+             Duchesnay, {\'E}douard},
+  title   = {Scikit-learn: Machine Learning in {Python}},
+  journal = {Journal of Machine Learning Research},
+  volume  = {12},
+  pages   = {2825--2830},
+  year    = {2011}
+}
+
+% -------------------------------------------------------------------- tools
+@misc{semgrep,
+  author       = {{Semgrep, Inc.}},
+  title        = {Semgrep},
+  howpublished = {\url{https://semgrep.dev}},
+  note         = {Version 1.165.0},
+  year         = {2026}
+}
+
+@misc{codeql,
+  author       = {{GitHub}},
+  title        = {{CodeQL}},
+  howpublished = {\url{https://codeql.github.com}},
+  note         = {Version 2.25.6},
+  year         = {2026}
+}
+
+@misc{sonarqube,
+  author       = {{SonarSource}},
+  title        = {{SonarQube} Community Build},
+  howpublished = {\url{https://www.sonarsource.com/products/sonarqube/}},
+  note         = {Version 26.6},
+  year         = {2026}
+}
+
+@misc{ck,
+  author       = {Aniche, Maur{\'\i}cio},
+  title        = {Java Code Metrics Calculator ({CK})},
+  howpublished = {\url{https://github.com/mauricioaniche/ck}},
+  note         = {Version 0.7.0},
+  year         = {2015}
+}
+
+@misc{osv,
+  author       = {{OSV}},
+  title        = {{OSV}: A Distributed Vulnerability Database for Open Source},
+  howpublished = {\url{https://osv.dev}},
+  year         = {2026}
+}
+
+@misc{gitleaks,
+  author       = {{Gitleaks}},
+  title        = {Gitleaks},
+  howpublished = {\url{https://github.com/gitleaks/gitleaks}},
+  note         = {Version 8.30.1},
+  year         = {2026}
+}
+
+@misc{detectsecrets,
+  author       = {{Yelp}},
+  title        = {detect-secrets},
+  howpublished = {\url{https://github.com/Yelp/detect-secrets}},
+  note         = {Version 1.5.0},
+  year         = {2026}
+}

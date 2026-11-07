@@ -1,0 +1,947 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>NSA, OSS e GOV.BR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* layout: same deck shell as "NSA versus OPEN SOURCE SOFTWARE", one slide at a time, three series instead of two */
+:root{
+  /* surfaces & ink */
+  --ground:#EDF0F3; --panel:#FFFFFF; --panel-2:#F5F7F9;
+  --ink:#111820; --body:#3A4552; --muted:#6C7886; --line:#D3DAE2; --line-soft:#E5EAF0;
+  /* categorical series — validated (all pairs): light band, chroma floor, CVD ΔE ≥ 9.8, normal ΔE ≥ 16.6, contrast ≥3:1 */
+  --s1:#4F7CB8; --s2:#B26B1F; --s3:#A8467A;
+  --s1-wash:#E6EDF6; --s2-wash:#F7EBDA; --s3-wash:#F5E4EE;
+  /* non-series marks: deliberately neutral (context, not identity) */
+  --mark-mute:#AFBAC6;
+  --pos:#2E7357; --neg:#9E2F2F;
+  --display:'Archivo',system-ui,sans-serif;
+  --text:'Source Sans 3',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E131A; --panel:#161D26; --panel-2:#1C242E;
+    --ink:#ECF1F6; --body:#BEC8D3; --muted:#8A96A5; --line:#293340; --line-soft:#212A34;
+    --s1:#6394D8; --s2:#C4822F; --s3:#CC6A9E;
+    --s1-wash:#1B2735; --s2-wash:#2E2416; --s3-wash:#2E1C27;
+    --mark-mute:#4A5867;
+    --pos:#5FB68C; --neg:#E0756A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E131A; --panel:#161D26; --panel-2:#1C242E;
+  --ink:#ECF1F6; --body:#BEC8D3; --muted:#8A96A5; --line:#293340; --line-soft:#212A34;
+  --s1:#6394D8; --s2:#C4822F; --s3:#CC6A9E;
+  --s1-wash:#1B2735; --s2-wash:#2E2416; --s3-wash:#2E1C27;
+  --mark-mute:#4A5867;
+  --pos:#5FB68C; --neg:#E0756A;
+  color-scheme:dark;
+}
+
+html,body{height:100%}
+body{background:var(--ground);color:var(--body);font-family:var(--text);margin:0}
+*{box-sizing:border-box}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- shell ---------- */
+.deck{min-height:100%;display:flex;flex-direction:column;padding-block:18px;padding-left:20px;padding-right:20px;gap:16px}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.slide{width:100%;max-width:1560px;background:var(--panel);border:1px solid var(--line);border-radius:5px;
+  padding:clamp(26px,3.2vw,52px) clamp(22px,4vw,64px) clamp(24px,2.8vw,42px);
+  display:flex;flex-direction:column;gap:clamp(16px,1.9vw,28px);min-width:0}
+
+.eyebrow{font-family:var(--mono);font-size:clamp(11px,.85vw,14px);font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:0}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.1vw,62px);line-height:1.04;letter-spacing:-.022em;
+  color:var(--ink);margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.9vw,42px);line-height:1.11;letter-spacing:-.018em;
+  color:var(--ink);margin:0;text-wrap:balance}
+.lede{font-size:clamp(14.5px,1.35vw,21px);line-height:1.5;max-width:72ch;margin:0}
+.lede.sm{font-size:clamp(13px,1.1vw,17px)}
+.head{display:flex;flex-direction:column;gap:clamp(7px,.7vw,11px)}
+strong{color:var(--ink);font-weight:600}
+.fine{font-size:clamp(12.5px,1.02vw,16px);color:var(--muted);line-height:1.5;margin:0}
+
+/* ---------- legend (identity channel — always present for 2+ series) ---------- */
+.legend{display:flex;gap:clamp(16px,1.7vw,28px);flex-wrap:wrap;align-items:center;
+  font-size:clamp(12px,1vw,15.5px);color:var(--body)}
+.legend span{display:flex;align-items:center;gap:8px}
+.key{width:clamp(11px,.85vw,14px);height:clamp(11px,.85vw,14px);border-radius:2px;flex:none}
+.k1{background:var(--s1)} .k2{background:var(--s2)} .k3{background:var(--s3)} .km{background:var(--mark-mute)}
+
+/* ---------- tables: numbers in text tokens, identity from header swatch ---------- */
+.tw{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:clamp(13.5px,1.12vw,17.5px);min-width:520px}
+th,td{text-align:right;padding:clamp(7px,.72vw,12px) clamp(9px,.85vw,15px);border-bottom:1px solid var(--line-soft)}
+th:first-child,td:first-child{text-align:left;padding-left:0}
+td:last-child,th:last-child{padding-right:0}
+thead th{font-family:var(--mono);font-size:clamp(10.5px,.82vw,13px);font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:8px;vertical-align:bottom}
+thead th .hk{display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+thead th.grp{text-align:center;border-bottom:1px solid var(--line-soft);padding-bottom:4px}
+tbody tr:last-child td{border-bottom:none}
+td.v{color:var(--body)} td.v2{color:var(--ink);font-weight:600}
+td.sep,th.sep{border-left:1px solid var(--line-soft)}
+.lab{color:var(--ink);font-weight:600}
+.sub{text-align:left;color:var(--muted);font-size:clamp(12px,1vw,15.5px)}
+.delta{font-family:var(--mono);font-size:clamp(12.5px,1.05vw,16px)}
+.up{color:var(--pos)} .down{color:var(--neg)} .flat{color:var(--muted)}
+
+/* ---------- stat tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line-soft);
+  border:1px solid var(--line-soft)}
+.tile{background:var(--panel);padding:clamp(14px,1.3vw,22px) clamp(15px,1.4vw,24px);
+  display:flex;flex-direction:column;gap:clamp(9px,.9vw,14px)}
+.tile-k{font-size:clamp(11.5px,1vw,15.5px);color:var(--muted);line-height:1.3;min-height:2.6em}
+.tile-row{display:flex;align-items:center;gap:10px}
+.tile-v{font-family:var(--mono);font-variant-numeric:tabular-nums;line-height:1;color:var(--ink)}
+.va{font-size:clamp(16px,1.5vw,24px);font-weight:500;color:var(--body)}
+.vb{font-size:clamp(20px,2vw,32px);font-weight:600}
+
+/* hero before/after tile */
+.hero{display:flex;align-items:baseline;gap:clamp(14px,1.4vw,22px);flex-wrap:wrap}
+.hero-a{font-family:var(--mono);font-size:clamp(26px,2.4vw,38px);font-weight:500;color:var(--muted);
+  text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:var(--line)}
+.hero-arrow{color:var(--muted);font-size:clamp(18px,1.6vw,26px)}
+.hero-b{font-family:var(--mono);font-size:clamp(38px,3.6vw,58px);font-weight:600;color:var(--ink);line-height:1}
+.hero-of{font-family:var(--mono);font-size:clamp(18px,1.6vw,26px);color:var(--muted)}
+
+/* ---------- bars: square at baseline, 4px rounded data-end ---------- */
+.bars{display:flex;flex-direction:column;gap:clamp(9px,.95vw,15px)}
+.bar-row{display:grid;grid-template-columns:minmax(92px,190px) 1fr auto;align-items:center;
+  gap:clamp(12px,1.1vw,18px);font-size:clamp(12.5px,1.08vw,16.5px)}
+.three-col .bar-row{grid-template-columns:minmax(80px,140px) 1fr auto}
+.three-col .bars{gap:clamp(7px,.72vw,11px)}
+.three-col .bar-track{height:clamp(12px,1.2vw,18px)}
+.bar-name{color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{height:clamp(14px,1.45vw,22px);background:var(--panel-2);border-radius:0 4px 4px 0}
+.bar-fill{height:100%;border-radius:0 4px 4px 0;cursor:default;min-width:2px}
+.b1{background:var(--s1)} .b2{background:var(--s2)} .b3{background:var(--s3)} .bm{background:var(--mark-mute)}
+.bar-val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(12px,1.05vw,16px);
+  color:var(--body);min-width:clamp(46px,4vw,64px);text-align:right}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,2.6vw,44px)}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.2vw,38px)}
+.two-col>*,.three-col>*{min-width:0}
+.col-head{font-family:var(--mono);font-size:clamp(10.5px,.88vw,13.5px);font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;padding-bottom:10px;margin-bottom:clamp(12px,1.3vw,20px);
+  border-bottom:1px solid var(--line);color:var(--muted);display:flex;align-items:center;gap:8px}
+
+/* ---------- stacked share bar: 2px surface gaps, emphasis not rank-ramp ---------- */
+.stack{display:flex;width:100%;height:clamp(36px,4vw,62px);gap:2px}
+.seg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);
+  font-size:clamp(10.5px,.95vw,15px);font-weight:600;color:var(--panel);white-space:nowrap;overflow:hidden;cursor:default;min-width:2px}
+.seg:first-child{border-radius:4px 0 0 4px} .seg:last-child{border-radius:0 4px 4px 0}
+
+/* ---------- dumbbell (three dots per row) ---------- */
+.db{display:flex;flex-direction:column}
+.db-row{display:grid;grid-template-columns:minmax(108px,210px) 1fr auto;align-items:center;
+  gap:clamp(14px,1.3vw,22px);padding:clamp(9px,1vw,16px) 0;border-bottom:1px solid var(--line-soft)}
+.db-row:last-child{border-bottom:none}
+.db-name{font-size:clamp(13px,1.15vw,18px);color:var(--ink);font-weight:600}
+.db-track{position:relative;height:clamp(16px,1.6vw,24px)}
+.db-line{position:absolute;top:50%;height:2px;background:var(--line);transform:translateY(-50%)}
+.db-dot{position:absolute;top:50%;width:clamp(13px,1.3vw,19px);height:clamp(13px,1.3vw,19px);border-radius:50%;
+  transform:translate(-50%,-50%);border:2px solid var(--panel);cursor:default}
+.d1{background:var(--s1)} .d2{background:var(--s2)} .d3{background:var(--s3)}
+.db-val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(12px,1.08vw,16.5px);
+  white-space:nowrap;min-width:clamp(150px,13vw,206px);text-align:right;color:var(--body)}
+.db-val .b{color:var(--ink);font-weight:600} .db-val .ar{color:var(--muted);padding:0 5px}
+.db-axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(10px,.85vw,13px);
+  color:var(--muted);border-top:1px solid var(--line);padding-top:6px}
+.db-axis-wrap{display:grid;grid-template-columns:minmax(108px,210px) 1fr auto;gap:clamp(14px,1.3vw,22px);margin-top:2px}
+.db-axis-wrap .sp{min-width:clamp(150px,13vw,206px)}
+
+/* ---------- tooltip ---------- */
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--panel);
+  font-family:var(--mono);font-size:clamp(11.5px,1vw,15px);line-height:1.45;padding:9px 13px;border-radius:3px;
+  box-shadow:0 3px 14px rgba(0,0,0,.2);max-width:320px}
+#tip b{display:block;font-weight:600;font-size:.9em;letter-spacing:.04em;text-transform:uppercase;opacity:.72}
+[data-tip]{outline-offset:2px}
+
+/* ---------- notes ---------- */
+.notes{background:var(--panel-2);border-left:3px solid var(--s2);padding:clamp(12px,1.2vw,20px) clamp(15px,1.4vw,24px);
+  font-size:clamp(12.5px,1.08vw,16.5px);line-height:1.55;color:var(--body)}
+.notes b{font-family:var(--mono);font-size:clamp(10px,.82vw,12.5px);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:6px;font-weight:600}
+
+/* ---------- nav ---------- */
+.nav{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dot{width:26px;height:5px;border-radius:3px;background:var(--line);border:none;padding:0;cursor:pointer}
+.dot[aria-current="true"]{background:var(--s2)}
+.dot:hover{background:var(--muted)}
+.btn{font-family:var(--mono);font-size:clamp(11px,.9vw,13.5px);letter-spacing:.06em;text-transform:uppercase;
+  background:var(--panel);color:var(--body);border:1px solid var(--line);border-radius:3px;
+  padding:8px 15px;cursor:pointer}
+.btn:hover{border-color:var(--s2);color:var(--ink)}
+.btn[aria-pressed="true"]{background:var(--s2-wash);border-color:var(--s2);color:var(--ink)}
+.count{font-family:var(--mono);font-size:clamp(11px,.9vw,13.5px);color:var(--muted);font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--s2);outline-offset:2px}
+
+.foot{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+  border-top:1px solid var(--line-soft);padding-top:clamp(11px,1.1vw,17px);
+  font-size:clamp(11.5px,.98vw,15px);color:var(--muted)}
+.foot .src{font-family:var(--mono);font-size:.92em}
+
+@media (max-width:1100px){
+  .three-col{grid-template-columns:1fr;gap:22px}
+}
+@media (max-width:860px){
+  .deck{padding-left:16px;padding-right:16px}
+  .two-col{grid-template-columns:1fr;gap:20px}
+  .db-row,.db-axis-wrap{grid-template-columns:84px 1fr auto;gap:9px}
+  .db-val,.db-axis-wrap .sp{min-width:118px}
+  .db-val .ctx{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="deck">
+  <div class="stage">
+
+    <!-- 1 -->
+    <section class="slide" id="s1">
+      <div class="head">
+        <p class="eyebrow">Engenharia de Software · Mineração de Repositórios</p>
+        <h1>Análise comparativa: NSA, Open Source Software e sistemas do governo brasileiro</h1>
+        <p class="lede">O mesmo pipeline estático, as mesmas 13 fases, as mesmas ferramentas canônicas — agora aplicados a
+          três conjuntos de 10 repositórios Java. Esta apresentação compara o que a execução sobre os sistemas do governo
+          coletou com os dois corpora anteriores.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile-k">Arquivos <span class="num">.java</span> analisados</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">21.254</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">25.506</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">13.635</span></div>
+        </div>
+        <div class="tile">
+          <div class="tile-k">Linhas do dataset final</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">31.622</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">64.415</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">33.521</span></div>
+        </div>
+        <div class="tile">
+          <div class="tile-k">Achados SAST <span class="num">(Semgrep + CodeQL)</span></div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">1.620</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">3.105</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">3.289</span></div>
+        </div>
+        <div class="tile">
+          <div class="tile-k">Melhor <span class="num">ROC-AUC</span> obtido</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">0,854</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">0,893</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">0,910</span></div>
+        </div>
+      </div>
+      <div class="legend">
+        <span><i class="key k1"></i> Dataset — NationalSecurityAgency</span>
+        <span><i class="key k2"></i> Dataset — OPEN SOURCE SOFTWARE, uma organização por repositório</span>
+        <span><i class="key k3"></i> Dataset — GOVERNO BRASILEIRO, setor público</span>
+      </div>
+      <div class="foot">
+        <span>Análise 100% estática — nenhum projeto compilado, buildado ou executado.</span>
+        <span class="src">← → navega · N notas · F tela cheia</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>Esta é a terceira execução do mesmo pipeline. Depois de comparar NSA com projetos open source, rodei
+        tudo de novo sobre dez repositórios de sistemas do setor público brasileiro: Demoiselle, SIGA, LexML e os projetos do
+        IBICT. O corpus do governo é o menor dos três em código Java, mas é o que mais gerou achados SAST e o que teve o
+        maior ROC-AUC. As duas coisas precisam ser explicadas, e boa parte da apresentação é sobre isso.
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" id="s2" hidden>
+      <div class="head">
+        <p class="eyebrow">01 · Composição dos corpora</p>
+        <h2>O corpus do governo traz de volta a concentração por organização</h2>
+        <p class="lede">São dez repositórios, mas só <strong>quatro organizações</strong>. Três deles são forks do
+          <strong>DSpace</strong> mantidos pelo IBICT e somam dois terços do código Java — o mesmo tipo de variável de
+          confusão que motivou a troca do dataset da NSA.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div>
+          <div class="col-head"><i class="key k1"></i> Dataset · NSA — participação no total de KLOC Java</div>
+          <div class="stack">
+            <div class="seg" style="width:74.3%;background:var(--s1)" data-tip="ghidra|2.046 KLOC · 74,3%">ghidra · 74,3%</div>
+            <div class="seg" style="width:20.6%;background:var(--mark-mute)" data-tip="datawave|566 KLOC · 20,6%">20,6%</div>
+            <div class="seg" style="width:2.4%;background:var(--mark-mute)" data-tip="emissary|67 KLOC · 2,4%"></div>
+            <div class="seg" style="width:1.1%;background:var(--mark-mute)" data-tip="timely|31 KLOC · 1,1%"></div>
+            <div class="seg" style="width:1.5%;background:var(--mark-mute)" data-tip="outros 6 repositórios|42 KLOC somados · 1,5%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="col-head"><i class="key k2"></i> Dataset · OPEN SOURCE SOFTWARE — participação no total de KLOC Java</div>
+          <div class="stack">
+            <div class="seg" style="width:20.9%;background:var(--s2)" data-tip="nacos|533 KLOC · 20,9%">nacos · 20,9%</div>
+            <div class="seg" style="width:16.9%;background:var(--mark-mute)" data-tip="netty|430 KLOC · 16,9%">16,9%</div>
+            <div class="seg" style="width:16.0%;background:var(--mark-mute)" data-tip="thingsboard|407 KLOC · 16,0%">16,0%</div>
+            <div class="seg" style="width:12.1%;background:var(--mark-mute)" data-tip="dubbo|309 KLOC · 12,1%">12,1%</div>
+            <div class="seg" style="width:11.3%;background:var(--mark-mute)" data-tip="rocketmq|287 KLOC · 11,3%">11,3%</div>
+            <div class="seg" style="width:8.2%;background:var(--mark-mute)" data-tip="jenkins|208 KLOC · 8,2%">8,2%</div>
+            <div class="seg" style="width:5.0%;background:var(--mark-mute)" data-tip="zookeeper|127 KLOC · 5,0%"></div>
+            <div class="seg" style="width:4.7%;background:var(--mark-mute)" data-tip="httpcomponents-client|120 KLOC · 4,7%"></div>
+            <div class="seg" style="width:3.3%;background:var(--mark-mute)" data-tip="commons-compress|83 KLOC · 3,3%"></div>
+            <div class="seg" style="width:1.7%;background:var(--mark-mute)" data-tip="shiro|44 KLOC · 1,7%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="col-head"><i class="key k3"></i> Dataset · GOVERNO BRASILEIRO — participação no total de KLOC Java</div>
+          <div class="stack">
+            <div class="seg" style="width:29.1%;background:var(--s3)" data-tip="projetos-codic-ibict/evidencia-dspace|424 KLOC · 29,1% · fork do DSpace">evidencia · 29,1%</div>
+            <div class="seg" style="width:26.7%;background:var(--s3)" data-tip="projetos-codic-ibict/deposita-dspace|389 KLOC · 26,7% · fork do DSpace">deposita · 26,7%</div>
+            <div class="seg" style="width:10.5%;background:var(--s3)" data-tip="projetos-codic-ibict/miguilim-dspace|153 KLOC · 10,5% · fork do DSpace">10,5%</div>
+            <div class="seg" style="width:15.5%;background:var(--mark-mute)" data-tip="projeto-siga/siga|225 KLOC · 15,5%">15,5%</div>
+            <div class="seg" style="width:10.1%;background:var(--mark-mute)" data-tip="projetos-codic-ibict/dataverse|148 KLOC · 10,1%">10,1%</div>
+            <div class="seg" style="width:2.8%;background:var(--mark-mute)" data-tip="demoiselle/framework|42 KLOC · 2,8%"></div>
+            <div class="seg" style="width:2.4%;background:var(--mark-mute)" data-tip="demoiselle/behave|35 KLOC · 2,4%"></div>
+            <div class="seg" style="width:1.7%;background:var(--mark-mute)" data-tip="demoiselle/signer|24 KLOC · 1,7%"></div>
+            <div class="seg" style="width:0.7%;background:var(--mark-mute)" data-tip="demoiselle/certificate|9,5 KLOC · 0,7%"></div>
+            <div class="seg" style="width:0.5%;background:var(--mark-mute)" data-tip="lexml/eta-backend-services|8,0 KLOC · 0,5%"></div>
+          </div>
+        </div>
+        <div class="legend">
+          <span><i class="key k1"></i> maior repositório · NSA</span>
+          <span><i class="key k2"></i> maior repositório · OSS</span>
+          <span><i class="key k3"></i> forks do DSpace · IBICT</span>
+          <span><i class="key km"></i> demais repositórios — passe o cursor para ver cada um</span>
+        </div>
+      </div>
+      <div class="three-col">
+        <p class="lede sm"><strong>4 dos 10</strong> repositórios pertenciam ao ecossistema DataWave, e o
+          <span class="num">ghidra</span> sozinho respondia por <strong>três quartos</strong> do código analisado.</p>
+        <p class="lede sm"><strong>10 organizações distintas</strong>, e o maior repositório não passa de
+          <strong>21%</strong>. Domínios: rede, IAM, mensageria, coordenação, RPC, CI, HTTP, compressão, IoT.</p>
+        <p class="lede sm"><strong>4 organizações</strong>: IBICT (4), Demoiselle (4), SIGA (1) e LexML (1). Os três forks do
+          DSpace somam <strong>66%</strong> do código. Domínios: repositórios institucionais, assinatura digital, gestão
+          documental.</p>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>O corpus do governo foi escolhido exclusivamente a partir de uma lista de projetos públicos brasileiros, e
+        isso tem um custo: o critério de uma organização por repositório não pôde ser mantido. O IBICT tem quatro
+        repositórios, sendo três forks do mesmo software, o DSpace, e eles somam dois terços do código. É uma situação muito
+        parecida com o DataWave na NSA.
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" id="s3" hidden>
+      <div class="head">
+        <p class="eyebrow">02 · Volume coletado</p>
+        <h2>O que cada fase do pipeline produziu</h2>
+        <p class="lede">Linhas gravadas por fase, nos três corpora. O corpus do governo tem cerca de metade do código do OSS,
+          e quase todas as fases encolhem na mesma proporção. Duas andam na direção contrária: Semgrep e OSV.</p>
+      </div>
+      <div class="tw">
+        <table style="min-width:900px">
+          <thead><tr>
+            <th>Fase</th><th class="sub">Saída</th>
+            <th><span class="hk"><i class="key k1"></i> NSA</span></th>
+            <th><span class="hk"><i class="key k2"></i> OSS</span></th>
+            <th><span class="hk"><i class="key k3"></i> GOV.BR</span></th>
+            <th class="sep">NSA → OSS</th><th>NSA → GOV</th><th>OSS → GOV</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="lab">loc</td><td class="sub">arquivos .java</td><td class="num v">21.254</td><td class="num v">25.506</td><td class="num v2">13.635</td><td class="delta up sep">+20%</td><td class="delta down">−36%</td><td class="delta down">−47%</td></tr>
+            <tr><td class="lab">complexity</td><td class="sub">métodos (lizard)</td><td class="num v">233.821</td><td class="num v">212.850</td><td class="num v2">104.320</td><td class="delta flat sep">−9%</td><td class="delta down">−55%</td><td class="delta down">−51%</td></tr>
+            <tr><td class="lab">sonarqube</td><td class="sub">arquivos estruturais</td><td class="num v">22.949</td><td class="num v">32.671</td><td class="num v2">18.943</td><td class="delta up sep">+42%</td><td class="delta down">−17%</td><td class="delta down">−42%</td></tr>
+            <tr><td class="lab">semgrep</td><td class="sub">achados SAST</td><td class="num v">575</td><td class="num v">1.230</td><td class="num v2">2.193</td><td class="delta up sep">+114%</td><td class="delta up">+281%</td><td class="delta up">+78%</td></tr>
+            <tr><td class="lab">codeql</td><td class="sub">achados SAST</td><td class="num v">1.045</td><td class="num v">1.875</td><td class="num v2">1.096</td><td class="delta up sep">+79%</td><td class="delta flat">+5%</td><td class="delta down">−42%</td></tr>
+            <tr><td class="lab">ck</td><td class="sub">arquivos com métricas OO</td><td class="num v">5.530</td><td class="num v">24.694</td><td class="num v2">13.253</td><td class="delta up sep">+347%</td><td class="delta up">+140%</td><td class="delta down">−46%</td></tr>
+            <tr><td class="lab">pydriller</td><td class="sub">arquivos com histórico</td><td class="num v">29.927</td><td class="num v">57.309</td><td class="num v2">28.284</td><td class="delta up sep">+91%</td><td class="delta flat">−5%</td><td class="delta down">−51%</td></tr>
+            <tr><td class="lab">osv</td><td class="sub">CVEs declarados</td><td class="num v">56</td><td class="num v">7</td><td class="num v2">469</td><td class="delta down sep">−88%</td><td class="delta up">+738%</td><td class="delta up">×67</td></tr>
+            <tr><td class="lab">secrets</td><td class="sub">segredos únicos</td><td class="num v">564</td><td class="num v">3.805</td><td class="num v2">627</td><td class="delta up sep">+575%</td><td class="delta up">+11%</td><td class="delta down">−84%</td></tr>
+            <tr><td class="lab">dataset</td><td class="sub">linhas × 46 colunas</td><td class="num v">31.622</td><td class="num v">64.415</td><td class="num v2">33.521</td><td class="delta up sep">+104%</td><td class="delta flat">+6%</td><td class="delta down">−48%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot">
+        <span>O Semgrep cresce <strong>+78%</strong> com metade do código porque <strong>1.448 dos 2.193</strong> achados estão
+          em arquivos HTML e XHTML, não em Java. Adiante.</span>
+        <span class="src">A → B: variação de B em relação a A</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>Em quase todas as fases o governo produz cerca de metade do volume do OSS, o que bate com o tamanho do
+        código. As exceções são reveladoras. O OSV encontra 469 CVEs declarados, contra 7 no OSS: miguilim, siga e behave
+        concentram a maior parte, o que indica dependências antigas e sem atualização. E o Semgrep quase dobra, mas a maior
+        parte dos achados nem está em código Java, como vamos ver na densidade por repositório. As três colunas da direita
+        comparam os corpora dois a dois. Na comparação NSA → OSS, os saltos de CK e SonarQube vêm das correções de coleta, não
+        do dataset.
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" id="s4" hidden>
+      <div class="head">
+        <p class="eyebrow">03 · Qualidade da coleta</p>
+        <h2>As correções feitas no Corpus 2 se mantiveram no Corpus 3</h2>
+        <p class="lede">Os dois bugs que faziam o pipeline perder dados em silêncio foram corrigidos antes da execução do
+          governo, e a cobertura de métricas OO se manteve no mesmo patamar do OSS.</p>
+      </div>
+      <div style="max-width:880px">
+          <div class="col-head">Cobertura do CK · métricas de orientação a objetos</div>
+          <div class="bars">
+            <div class="bar-row"><span class="bar-name">NSA</span>
+              <div class="bar-track"><div class="bar-fill b1" style="width:26%" data-tip="Dataset · NSA|5.530 de 21.254 arquivos · 26%"></div></div>
+              <span class="bar-val">26%</span></div>
+            <div class="bar-row"><span class="bar-name">OSS</span>
+              <div class="bar-track"><div class="bar-fill b2" style="width:97%" data-tip="Dataset · OPEN SOURCE SOFTWARE|24.694 de 25.506 arquivos · 97%"></div></div>
+              <span class="bar-val">97%</span></div>
+            <div class="bar-row"><span class="bar-name">GOV.BR</span>
+              <div class="bar-track"><div class="bar-fill b3" style="width:97%" data-tip="Dataset · GOVERNO BRASILEIRO|13.253 de 13.635 arquivos · 97%"></div></div>
+              <span class="bar-val">97%</span></div>
+          </div>
+          <p class="fine" style="margin-top:13px">Com o CK rodando por raiz de módulo, os <strong>10 repositórios</strong> do
+            governo entraram com métricas OO. A menor cobertura individual é a do <span class="num">demoiselle/signer</span>:
+            332 de 422 arquivos, <strong>79%</strong>.</p>
+          <p class="fine" style="margin-top:8px">Na NSA, o mesmo CK em lote único tinha perdido o <span class="num">ghidra</span>
+            inteiro.</p>
+        </div>
+      <div class="legend">
+        <span><i class="key k1"></i> Dataset — NSA</span>
+        <span><i class="key k2"></i> Dataset — OPEN SOURCE SOFTWARE</span>
+        <span><i class="key k3"></i> Dataset — GOVERNO BRASILEIRO</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>O terceiro corpus serviu também de teste para as correções do pipeline. O CK manteve 97% de cobertura,
+        igual ao OSS, com os dez repositórios do governo entrando com métricas OO. Na NSA, o mesmo CK em lote único tinha
+        perdido o ghidra inteiro.
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" id="s5" hidden>
+      <div class="head">
+        <p class="eyebrow">04 · Alvo do Machine Learning</p>
+        <h2>O rótulo de risco: união de Semgrep e CodeQL</h2>
+        <p class="lede">Um arquivo é positivo se <em>qualquer</em> das duas ferramentas SAST o sinaliza — em segurança, o
+          falso-negativo é o pior erro. As duas ferramentas entram como alvo, nunca como feature.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile-k">Achados Semgrep</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">575</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">1.230</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">2.193</span></div>
+        </div>
+        <div class="tile">
+          <div class="tile-k">Achados CodeQL</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">1.045</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">1.875</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">1.096</span></div>
+        </div>
+        <div class="tile">
+          <div class="tile-k">Arquivos marcados em risco</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">560</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">839</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">784</span></div>
+        </div>
+        <div class="tile">
+          <div class="tile-k">Taxa de positivos no dataset</div>
+          <div class="tile-row"><i class="key k1"></i><span class="tile-v va">1,77%</span></div>
+          <div class="tile-row"><i class="key k2"></i><span class="tile-v va">1,30%</span></div>
+          <div class="tile-row"><i class="key k3"></i><span class="tile-v vb">2,34%</span></div>
+        </div>
+      </div>
+      <p class="lede sm">O governo tem a <strong>maior taxa de positivos</strong> dos três corpora. Mas
+        <strong>199 dos 784</strong> positivos (25%) não são arquivos <span class="num">.java</span> da árvore atual: são
+        HTML, JavaScript, XHTML e XML sinalizados pelo Semgrep. Na NSA e no OSS essa parcela fica perto de
+        <strong>10%</strong> (55 e 81 arquivos).</p>
+      <div class="foot">
+        <span>Anti-vazamento: <span class="num">n_semgrep</span> e <span class="num">n_codeql</span> ficam no dataset como
+          descritivo, mas são <strong>excluídos das features</strong> — derivam do alvo.</span>
+        <span class="src">NSA ▪ OSS ▪ GOV.BR</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>A regra do alvo não mudou: união das duas ferramentas para maximizar o recall. O que muda no governo é
+        de onde vêm os positivos. Um quarto deles está em arquivos que não são Java, principalmente páginas web. Isso é
+        coerente com o perfil dos sistemas, que são aplicações web, mas significa que parte do alvo não está sendo explicada
+        pelas métricas de código Java que usamos como feature.
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" id="s6" hidden>
+      <div class="head">
+        <p class="eyebrow">05 · Densidade de risco</p>
+        <h2>Achados de segurança por KLOC, repositório a repositório</h2>
+        <p class="lede">Normalizar por mil linhas de código Java remove o efeito do tamanho e deixa comparar projetos de
+          escalas muito diferentes. Os <strong>10 repositórios</strong> de cada corpus, na <strong>mesma escala</strong>, com máximo em 6,04.</p>
+      </div>
+      <div class="three-col">
+        <div>
+          <div class="col-head"><i class="key k1"></i> Dataset · NSA</div>
+          <div class="bars">
+            <div class="bar-row"><span class="bar-name">fractalrabbit</span><div class="bar-track"><div class="bar-fill b1" style="width:45.0%" data-tip="fractalrabbit|2,72 achados/KLOC · 1,1 KLOC · 3 achados"></div></div><span class="bar-val">2,72</span></div>
+            <div class="bar-row"><span class="bar-name">rank-based-link.</span><div class="bar-track"><div class="bar-fill b1" style="width:30.1%" data-tip="rank-based-linkage|1,82 achados/KLOC · 1,6 KLOC · 3 achados"></div></div><span class="bar-val">1,82</span></div>
+            <div class="bar-row"><span class="bar-name">timely</span><div class="bar-track"><div class="bar-fill b1" style="width:21.9%" data-tip="timely|1,32 achados/KLOC · 31 KLOC · 41 achados"></div></div><span class="bar-val">1,32</span></div>
+            <div class="bar-row"><span class="bar-name">datawave</span><div class="bar-track"><div class="bar-fill b1" style="width:6.5%" data-tip="datawave|0,39 achados/KLOC · 566 KLOC · 222 achados"></div></div><span class="bar-val">0,39</span></div>
+            <div class="bar-row"><span class="bar-name">lemongrenade</span><div class="bar-track"><div class="bar-fill b1" style="width:6.0%" data-tip="lemongrenade|0,36 achados/KLOC · 14 KLOC · 5 achados"></div></div><span class="bar-val">0,36</span></div>
+            <div class="bar-row"><span class="bar-name">datawave-query</span><div class="bar-track"><div class="bar-fill b1" style="width:6.0%" data-tip="datawave-query-service|0,36 achados/KLOC · 14 KLOC · 5 achados"></div></div><span class="bar-val">0,36</span></div>
+            <div class="bar-row"><span class="bar-name">datawave-authz</span><div class="bar-track"><div class="bar-fill b1" style="width:4.8%" data-tip="datawave-authorization-service|0,29 achados/KLOC · 3,5 KLOC · 1 achado"></div></div><span class="bar-val">0,29</span></div>
+            <div class="bar-row"><span class="bar-name">emissary</span><div class="bar-track"><div class="bar-fill b1" style="width:3.5%" data-tip="emissary|0,21 achados/KLOC · 67 KLOC · 14 achados"></div></div><span class="bar-val">0,21</span></div>
+            <div class="bar-row"><span class="bar-name">ghidra</span><div class="bar-track"><div class="bar-fill b1" style="width:2.3%" data-tip="ghidra|0,14 achados/KLOC · 2.046 KLOC · 280 achados"></div></div><span class="bar-val">0,14</span></div>
+            <div class="bar-row"><span class="bar-name">datawave-audit</span><div class="bar-track"><div class="bar-fill b1" style="width:2.2%" data-tip="datawave-audit-service|0,13 achados/KLOC · 7,7 KLOC · 1 achado"></div></div><span class="bar-val">0,13</span></div>
+          </div>
+          <p class="fine" style="margin-top:11px">O topo é ocupado por repositórios <strong>minúsculos</strong> —
+            fractalrabbit tem 1,1 KLOC e 3 achados. A densidade fica instável.</p>
+        </div>
+        <div>
+          <div class="col-head"><i class="key k2"></i> Dataset · OPEN SOURCE SOFTWARE</div>
+          <div class="bars">
+            <div class="bar-row"><span class="bar-name">shiro</span><div class="bar-track"><div class="bar-fill b2" style="width:19.9%" data-tip="apache/shiro|1,20 achados/KLOC · 44 KLOC · 53 achados"></div></div><span class="bar-val">1,20</span></div>
+            <div class="bar-row"><span class="bar-name">dubbo</span><div class="bar-track"><div class="bar-fill b2" style="width:15.9%" data-tip="apache/dubbo|0,96 achados/KLOC · 309 KLOC · 297 achados"></div></div><span class="bar-val">0,96</span></div>
+            <div class="bar-row"><span class="bar-name">netty</span><div class="bar-track"><div class="bar-fill b2" style="width:14.4%" data-tip="netty/netty|0,87 achados/KLOC · 430 KLOC · 376 achados"></div></div><span class="bar-val">0,87</span></div>
+            <div class="bar-row"><span class="bar-name">zookeeper</span><div class="bar-track"><div class="bar-fill b2" style="width:7.3%" data-tip="apache/zookeeper|0,44 achados/KLOC · 127 KLOC · 56 achados"></div></div><span class="bar-val">0,44</span></div>
+            <div class="bar-row"><span class="bar-name">nacos</span><div class="bar-track"><div class="bar-fill b2" style="width:6.8%" data-tip="alibaba/nacos|0,41 achados/KLOC · 533 KLOC · 218 achados"></div></div><span class="bar-val">0,41</span></div>
+            <div class="bar-row"><span class="bar-name">httpcomponents</span><div class="bar-track"><div class="bar-fill b2" style="width:5.6%" data-tip="apache/httpcomponents-client|0,34 achados/KLOC · 120 KLOC · 41 achados"></div></div><span class="bar-val">0,34</span></div>
+            <div class="bar-row"><span class="bar-name">jenkins</span><div class="bar-track"><div class="bar-fill b2" style="width:4.1%" data-tip="jenkinsci/jenkins|0,25 achados/KLOC · 208 KLOC · 52 achados"></div></div><span class="bar-val">0,25</span></div>
+            <div class="bar-row"><span class="bar-name">thingsboard</span><div class="bar-track"><div class="bar-fill b2" style="width:3.3%" data-tip="thingsboard/thingsboard|0,20 achados/KLOC · 407 KLOC · 81 achados"></div></div><span class="bar-val">0,20</span></div>
+            <div class="bar-row"><span class="bar-name">rocketmq</span><div class="bar-track"><div class="bar-fill b2" style="width:3.1%" data-tip="apache/rocketmq|0,19 achados/KLOC · 287 KLOC · 54 achados"></div></div><span class="bar-val">0,19</span></div>
+            <div class="bar-row"><span class="bar-name">commons-compress</span><div class="bar-track"><div class="bar-fill b2" style="width:0.3%" data-tip="apache/commons-compress|0,02 achados/KLOC · 83 KLOC · 2 achados"></div></div><span class="bar-val">0,02</span></div>
+          </div>
+          <p class="fine" style="margin-top:11px">O topo é ocupado por <strong>domínio de segurança</strong>: shiro é um
+            framework de autenticação, dubbo faz serialização RPC, netty é I/O de rede e TLS.</p>
+        </div>
+        <div>
+          <div class="col-head"><i class="key k3"></i> Dataset · GOVERNO BRASILEIRO</div>
+          <div class="bars">
+            <div class="bar-row"><span class="bar-name">siga</span><div class="bar-track"><div class="bar-fill b3" style="width:100%" data-tip="projeto-siga/siga|6,04 achados/KLOC · 225 KLOC · 1.362 achados · só .java: 65 achados, 0,29/KLOC"></div></div><span class="bar-val">6,04</span></div>
+            <div class="bar-row"><span class="bar-name">certificate</span><div class="bar-track"><div class="bar-fill b3" style="width:40.1%" data-tip="demoiselle/certificate|2,42 achados/KLOC · 9,5 KLOC · 23 achados · só .java: 1,47/KLOC"></div></div><span class="bar-val">2,42</span></div>
+            <div class="bar-row"><span class="bar-name">dataverse</span><div class="bar-track"><div class="bar-fill b3" style="width:35.1%" data-tip="projetos-codic-ibict/dataverse|2,12 achados/KLOC · 148 KLOC · 314 achados · só .java: 0,31/KLOC"></div></div><span class="bar-val">2,12</span></div>
+            <div class="bar-row"><span class="bar-name">signer</span><div class="bar-track"><div class="bar-fill b3" style="width:26.0%" data-tip="demoiselle/signer|1,57 achados/KLOC · 24 KLOC · 38 achados · só .java: 1,40/KLOC"></div></div><span class="bar-val">1,57</span></div>
+            <div class="bar-row"><span class="bar-name">miguilim</span><div class="bar-track"><div class="bar-fill b3" style="width:18.7%" data-tip="projetos-codic-ibict/miguilim-dspace|1,13 achados/KLOC · 153 KLOC · 173 achados · só .java: 0,83/KLOC"></div></div><span class="bar-val">1,13</span></div>
+            <div class="bar-row"><span class="bar-name">behave</span><div class="bar-track"><div class="bar-fill b3" style="width:9.6%" data-tip="demoiselle/behave|0,58 achados/KLOC · 35 KLOC · 20 achados · todos em .java"></div></div><span class="bar-val">0,58</span></div>
+            <div class="bar-row"><span class="bar-name">eta-backend</span><div class="bar-track"><div class="bar-fill b3" style="width:6.3%" data-tip="lexml/eta-backend-services|0,38 achados/KLOC · 8,0 KLOC · 3 achados · todos em .java"></div></div><span class="bar-val">0,38</span></div>
+            <div class="bar-row"><span class="bar-name">deposita</span><div class="bar-track"><div class="bar-fill b3" style="width:5.3%" data-tip="projetos-codic-ibict/deposita-dspace|0,32 achados/KLOC · 389 KLOC · 124 achados · só .java: 0,15/KLOC"></div></div><span class="bar-val">0,32</span></div>
+            <div class="bar-row"><span class="bar-name">framework</span><div class="bar-track"><div class="bar-fill b3" style="width:5.1%" data-tip="demoiselle/framework|0,31 achados/KLOC · 42 KLOC · 13 achados · só .java: 0,24/KLOC"></div></div><span class="bar-val">0,31</span></div>
+            <div class="bar-row"><span class="bar-name">evidencia</span><div class="bar-track"><div class="bar-fill b3" style="width:4.8%" data-tip="projetos-codic-ibict/evidencia-dspace|0,29 achados/KLOC · 424 KLOC · 123 achados · só .java: 0,14/KLOC"></div></div><span class="bar-val">0,29</span></div>
+          </div>
+          <p class="fine" style="margin-top:11px">O siga lidera, mas <strong>1.021</strong> dos seus 1.362 achados estão na
+            documentação HTML do <strong>jQuery UI 1.10.3</strong> copiada para dentro do repositório. Só em
+            <span class="num">.java</span>, o siga cai para <strong>0,29</strong>.</p>
+        </div>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>No governo, o ranking de densidade mede outra coisa. O siga aparece com seis achados por KLOC, mais que
+        o dobro de qualquer outro repositório dos três corpora. Quando abri os achados, mil e vinte e um eram links http em
+        páginas de documentação do jQuery UI, código de terceiros que foi copiado para dentro do projeto. No dataverse, 210
+        dos 314 achados são páginas JSF com autoescape desligado. O Semgrep analisa tudo, mas a densidade divide por KLOC
+        Java, e isso infla a métrica. Passe o cursor nas barras para ver a densidade só em arquivos Java.
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" id="s7" hidden>
+      <div class="head">
+        <p class="eyebrow">06 · Perfil de vulnerabilidades</p>
+        <h2>As CWEs mudam de natureza, não só de volume</h2>
+        <p class="lede">Classificação das fraquezas encontradas, mapeada às subcaracterísticas de segurança da
+          <strong>ISO/IEC 25010</strong>.</p>
+      </div>
+      <div class="three-col">
+        <div>
+          <div class="col-head"><i class="key k1"></i> Dataset · NSA</div>
+          <div class="tw"><table style="min-width:0"><tbody>
+            <tr><td class="lab">CWE-470</td><td class="sub">Reflexão insegura</td><td class="num v">118</td></tr>
+            <tr><td class="lab">CWE-319</td><td class="sub">Transmissão em claro</td><td class="num v">104</td></tr>
+            <tr><td class="lab">CWE-89</td><td class="sub">Injeção de SQL</td><td class="num v">99</td></tr>
+            <tr><td class="lab">CWE-353</td><td class="sub">Falta de verificação</td><td class="num v">67</td></tr>
+            <tr><td class="lab">CWE-1357</td><td class="sub">Dependência de componente</td><td class="num v">50</td></tr>
+            <tr><td class="lab">CWE-78</td><td class="sub">Injeção de comando</td><td class="num v">43</td></tr>
+          </tbody></table></div>
+        </div>
+        <div>
+          <div class="col-head"><i class="key k2"></i> Dataset · OPEN SOURCE SOFTWARE</div>
+          <div class="tw"><table style="min-width:0"><tbody>
+            <tr><td class="lab">CWE-353</td><td class="sub">Falta de verificação</td><td class="num v">379</td></tr>
+            <tr><td class="lab">CWE-1357</td><td class="sub">Dependência de componente</td><td class="num v">358</td></tr>
+            <tr><td class="lab">CWE-732</td><td class="sub">Permissão incorreta</td><td class="num v">252</td></tr>
+            <tr><td class="lab">CWE-319</td><td class="sub">Transmissão em claro</td><td class="num v">117</td></tr>
+            <tr><td class="lab">CWE-1333</td><td class="sub">Regex ineficiente (ReDoS)</td><td class="num v">83</td></tr>
+            <tr><td class="lab">CWE-470</td><td class="sub">Reflexão insegura</td><td class="num v">81</td></tr>
+          </tbody></table></div>
+        </div>
+        <div>
+          <div class="col-head"><i class="key k3"></i> Dataset · GOVERNO BRASILEIRO</div>
+          <div class="tw"><table style="min-width:0"><tbody>
+            <tr><td class="lab">CWE-319</td><td class="sub">Transmissão em claro</td><td class="num v2">1.148</td></tr>
+            <tr><td class="lab">CWE-150</td><td class="sub">Escape desligado (JSF)</td><td class="num v2">210</td></tr>
+            <tr><td class="lab">CWE-353</td><td class="sub">Falta de verificação</td><td class="num v2">157</td></tr>
+            <tr><td class="lab">CWE-79</td><td class="sub">Cross-site scripting</td><td class="num v2">152</td></tr>
+            <tr><td class="lab">CWE-1357</td><td class="sub">Dependência de componente</td><td class="num v2">86</td></tr>
+            <tr><td class="lab">CWE-470</td><td class="sub">Reflexão insegura</td><td class="num v2">80</td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+      <p class="lede sm">No governo o perfil fica <strong>web</strong>: <strong>CWE-79</strong> (XSS) e
+        <strong>CWE-150</strong> (autoescape desligado nas páginas JSF do dataverse) entram no topo. <strong>CWE-319</strong>
+        chega a 1.148, mas 1.123 vêm de uma única regra, links <span class="num">http://</span> em HTML. Quatro CWEs aparecem
+        no topo dos três corpora: <strong>319, 353, 470 e 1357</strong>.</p>
+      <div class="notes" hidden>
+        <b>Roteiro</b>Cada corpus tem um perfil diferente. A NSA tinha injeção de SQL por causa do DataWave. O OSS trouxe
+        fraquezas de servidor. O governo traz fraquezas de aplicação web: cross-site scripting e escape desligado em páginas
+        JSF. O número de CWE-319 é grande, mas é quase todo de uma única regra que sinaliza links http em HTML. O que se
+        mantém nos três é um núcleo de quatro CWEs: transmissão em claro, falta de verificação de integridade, reflexão
+        insegura e dependência de componente.
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" id="s8" hidden>
+      <div class="head">
+        <p class="eyebrow">07 · Resultado do Machine Learning</p>
+        <h2>O governo lidera o ROC-AUC nos três modelos de ensemble</h2>
+        <p class="lede">Validação por <strong>GroupKFold agrupado por repositório</strong>: nenhum arquivo de um projeto
+          aparece em treino e teste ao mesmo tempo. Balanceamento com SMOTE.</p>
+      </div>
+      <div class="db">
+        <div class="db-row"><span class="db-name">LogisticRegression</span>
+          <div class="db-track"><div class="db-line" style="left:46.0%;right:22.8%"></div>
+            <div class="db-dot d1" style="left:46.0%" data-tip="LogisticRegression · NSA|ROC-AUC 0,815"></div>
+            <div class="db-dot d2" style="left:77.2%" data-tip="LogisticRegression · OSS|ROC-AUC 0,893"></div>
+            <div class="db-dot d3" style="left:61.6%" data-tip="LogisticRegression · GOV.BR|ROC-AUC 0,854"></div></div>
+          <span class="db-val"><span class="ctx">0,815 · 0,893</span><span class="ar">→</span><span class="b">0,854</span></span></div>
+        <div class="db-row"><span class="db-name">RandomForest</span>
+          <div class="db-track"><div class="db-line" style="left:61.6%;right:22.0%"></div>
+            <div class="db-dot d1" style="left:61.6%" data-tip="RandomForest · NSA|ROC-AUC 0,854"></div>
+            <div class="db-dot d2" style="left:76.4%" data-tip="RandomForest · OSS|ROC-AUC 0,891"></div>
+            <div class="db-dot d3" style="left:78.0%" data-tip="RandomForest · GOV.BR|ROC-AUC 0,895"></div></div>
+          <span class="db-val"><span class="ctx">0,854 · 0,891</span><span class="ar">→</span><span class="b">0,895</span></span></div>
+        <div class="db-row"><span class="db-name">LightGBM</span>
+          <div class="db-track"><div class="db-line" style="left:58.0%;right:16.0%"></div>
+            <div class="db-dot d1" style="left:58.0%" data-tip="LightGBM · NSA|ROC-AUC 0,845"></div>
+            <div class="db-dot d2" style="left:68.8%" data-tip="LightGBM · OSS|ROC-AUC 0,872"></div>
+            <div class="db-dot d3" style="left:84.0%" data-tip="LightGBM · GOV.BR|ROC-AUC 0,910"></div></div>
+          <span class="db-val"><span class="ctx">0,845 · 0,872</span><span class="ar">→</span><span class="b">0,910</span></span></div>
+        <div class="db-row"><span class="db-name">XGBoost</span>
+          <div class="db-track"><div class="db-line" style="left:51.6%;right:19.2%"></div>
+            <div class="db-dot d1" style="left:51.6%" data-tip="XGBoost · NSA|ROC-AUC 0,829"></div>
+            <div class="db-dot d2" style="left:64.8%" data-tip="XGBoost · OSS|ROC-AUC 0,862"></div>
+            <div class="db-dot d3" style="left:80.8%" data-tip="XGBoost · GOV.BR|ROC-AUC 0,902"></div></div>
+          <span class="db-val"><span class="ctx">0,829 · 0,862</span><span class="ar">→</span><span class="b">0,902</span></span></div>
+        <div class="db-row"><span class="db-name">DecisionTree</span>
+          <div class="db-track"><div class="db-line" style="left:24.8%;right:57.6%"></div>
+            <div class="db-dot d1" style="left:24.8%" data-tip="DecisionTree · NSA|ROC-AUC 0,762"></div>
+            <div class="db-dot d3" style="left:41.6%" data-tip="DecisionTree · GOV.BR|ROC-AUC 0,804"></div>
+            <div class="db-dot d2" style="left:42.4%" data-tip="DecisionTree · OSS|ROC-AUC 0,806"></div></div>
+          <span class="db-val"><span class="ctx">0,762 · 0,806</span><span class="ar">→</span><span class="b">0,804</span></span></div>
+      </div>
+      <div class="db-axis-wrap"><span></span>
+        <div class="db-axis"><span>0,70</span><span>0,75</span><span>0,80</span><span>0,85</span><span>0,90</span><span>0,95</span></div>
+        <span class="sp"></span>
+      </div>
+      <div class="legend">
+        <span><i class="key k1"></i> ROC-AUC no Dataset — NSA</span>
+        <span><i class="key k2"></i> ROC-AUC no Dataset — OPEN SOURCE SOFTWARE</span>
+        <span><i class="key k3"></i> ROC-AUC no Dataset — GOVERNO BRASILEIRO</span>
+      </div>
+      <div class="foot">
+        <span>Eixo truncado em <span class="num">0,70</span> para tornar as diferenças visíveis — nenhum modelo pontuou
+          abaixo disso. Valores à direita: NSA · OSS → GOV.BR.</span>
+        <span class="src">GroupKFold · SMOTE · 5 modelos</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>Olhando só o ROC-AUC, o corpus do governo é o melhor dos três nos modelos de ensemble: RandomForest,
+        XGBoost e LightGBM, com o LightGBM chegando a 0,91. Na regressão logística e na árvore de decisão, o OSS continua à
+        frente. Seria fácil parar aqui e concluir que o modelo funciona melhor em sistemas do governo, mas o próximo
+        slide mostra por que esse número precisa ser lido com cuidado.
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" id="s9" hidden>
+      <div class="head">
+        <p class="eyebrow">08 · Leitura crítica</p>
+        <h2>Precisão e recall saltam no governo, e o salto é grande demais para aceitar sem conferir</h2>
+        <p class="lede">RandomForest e XGBoost mais que triplicam o F1 em relação ao OSS. Uma taxa de positivos maior ajuda,
+          mas não explica uma diferença desse tamanho.</p>
+      </div>
+      <div class="tw">
+        <table style="min-width:760px">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="grp sep" colspan="3">Precisão</th>
+              <th class="grp sep" colspan="3">Recall</th>
+              <th class="grp sep" colspan="3">F1</th>
+            </tr>
+            <tr>
+              <th>Modelo</th>
+              <th class="sep"><span class="hk"><i class="key k1"></i> NSA</span></th><th><span class="hk"><i class="key k2"></i> OSS</span></th><th><span class="hk"><i class="key k3"></i> GOV</span></th>
+              <th class="sep"><span class="hk"><i class="key k1"></i> NSA</span></th><th><span class="hk"><i class="key k2"></i> OSS</span></th><th><span class="hk"><i class="key k3"></i> GOV</span></th>
+              <th class="sep"><span class="hk"><i class="key k1"></i> NSA</span></th><th><span class="hk"><i class="key k2"></i> OSS</span></th><th><span class="hk"><i class="key k3"></i> GOV</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="lab">LogisticRegression</td><td class="num v sep">0,089</td><td class="num v">0,057</td><td class="num v2">0,097</td><td class="num v sep">0,705</td><td class="num v">0,754</td><td class="num v2">0,751</td><td class="num v sep">0,158</td><td class="num v">0,105</td><td class="num v2">0,162</td></tr>
+            <tr><td class="lab">DecisionTree</td><td class="num v sep">0,145</td><td class="num v">0,084</td><td class="num v2">0,170</td><td class="num v sep">0,426</td><td class="num v">0,398</td><td class="num v2">0,553</td><td class="num v sep">0,213</td><td class="num v">0,136</td><td class="num v2">0,255</td></tr>
+            <tr><td class="lab">RandomForest</td><td class="num v sep">0,299</td><td class="num v">0,175</td><td class="num v2">0,429</td><td class="num v sep">0,172</td><td class="num v">0,098</td><td class="num v2">0,430</td><td class="num v sep">0,199</td><td class="num v">0,117</td><td class="num v2">0,405</td></tr>
+            <tr><td class="lab">XGBoost</td><td class="num v sep">0,252</td><td class="num v">0,161</td><td class="num v2">0,450</td><td class="num v sep">0,131</td><td class="num v">0,062</td><td class="num v2">0,387</td><td class="num v sep">0,136</td><td class="num v">0,086</td><td class="num v2">0,395</td></tr>
+            <tr><td class="lab">LightGBM</td><td class="num v sep">0,377</td><td class="num v">0,177</td><td class="num v2">0,415</td><td class="num v sep">0,133</td><td class="num v">0,062</td><td class="num v2">0,330</td><td class="num v sep">0,175</td><td class="num v">0,089</td><td class="num v2">0,344</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lede sm">A <strong>LogisticRegression</strong> segue estável nos três corpora, com recall entre
+        <strong>0,705 e 0,754</strong>: encontra três em cada quatro arquivos de risco, ao custo de muitos alarmes falsos. Já
+        os modelos de árvore mudam de patamar no governo, e esse salto pede cautela na leitura.</p>
+      <div class="foot">
+        <span>Taxa de positivos: <span class="num">1,77%</span> · <span class="num">1,30%</span> →
+          <span class="num">2,34%</span>. Com a classe positiva menos rara, cada acerto fica mais barato, mas não 3× mais.</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>No estudo anterior a precisão tinha caído, e a explicação estava no denominador. Aqui acontece o
+        contrário: precisão, recall e F1 sobem bastante nos modelos de árvore. A regressão logística, que é o modelo mais
+        simples, praticamente não muda entre os três corpora. Quando só os modelos com mais capacidade de memorizar melhoram,
+        o ganho precisa ser lido com cautela antes de virar conclusão.
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" id="s10" hidden data-skip>
+      <div class="head">
+        <p class="eyebrow">09 · Vazamento entre forks</p>
+        <h2>Dois forks quase idênticos caem em dobras diferentes do GroupKFold</h2>
+        <p class="lede">O GroupKFold separa por repositório, não por conteúdo. Quando o <span class="num">evidencia-dspace</span>
+          é testado, o <span class="num">deposita-dspace</span> está no treino, e vice-versa.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-head"><i class="key k3"></i> Precisão do RandomForest por dobra</div>
+          <div class="bars">
+            <div class="bar-row"><span class="bar-name">1 · evidencia</span><div class="bar-track"><div class="bar-fill b3" style="width:60.5%" data-tip="Dobra 1 · evidencia-dspace|precisão 0,605 · recall 0,872 · ROC-AUC 0,994"></div></div><span class="bar-val">0,605</span></div>
+            <div class="bar-row"><span class="bar-name">2 · siga</span><div class="bar-track"><div class="bar-fill bm" style="width:7.8%" data-tip="Dobra 2 · siga|precisão 0,078 · recall 0,261 · ROC-AUC 0,744"></div></div><span class="bar-val">0,078</span></div>
+            <div class="bar-row"><span class="bar-name">3 · deposita</span><div class="bar-track"><div class="bar-fill b3" style="width:82.9%" data-tip="Dobra 3 · deposita-dspace|precisão 0,829 · recall 0,622 · ROC-AUC 0,978"></div></div><span class="bar-val">0,829</span></div>
+            <div class="bar-row"><span class="bar-name">4 · 4 repos</span><div class="bar-track"><div class="bar-fill bm" style="width:26.2%" data-tip="Dobra 4 · certificate, framework, signer, eta-backend|precisão 0,262 · recall 0,200 · ROC-AUC 0,944"></div></div><span class="bar-val">0,262</span></div>
+            <div class="bar-row"><span class="bar-name">5 · 3 repos</span><div class="bar-track"><div class="bar-fill bm" style="width:37.0%" data-tip="Dobra 5 · behave, dataverse, miguilim-dspace|precisão 0,370 · recall 0,195 · ROC-AUC 0,815"></div></div><span class="bar-val">0,370</span></div>
+          </div>
+          <div class="legend" style="margin-top:14px">
+            <span><i class="key k3"></i> dobra de teste com fork do DSpace que tem gêmeo no treino</span>
+            <span><i class="key km"></i> demais dobras</span>
+          </div>
+          <div class="hero" style="margin-top:22px">
+            <span class="hero-b">2.910</span><span class="hero-of">de 3.652</span>
+          </div>
+          <p class="fine" style="margin-top:10px">arquivos <span class="num">.java</span> do deposita são
+            <strong>idênticos byte a byte</strong> a um arquivo do evidencia (80%). <strong>103 dos 109</strong> positivos do
+            evidencia têm o mesmo caminho de um positivo do deposita.</p>
+        </div>
+        <div>
+          <div class="col-head">Média por grupo de dobras · GOV.BR</div>
+          <div class="tw"><table style="min-width:0">
+            <thead>
+              <tr><th></th><th class="grp sep" colspan="2">ROC-AUC</th><th class="grp sep" colspan="2">Precisão</th></tr>
+              <tr><th>Modelo</th><th class="sep">DSpace</th><th>demais</th><th class="sep">DSpace</th><th>demais</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="lab">RandomForest</td><td class="num v sep">0,986</td><td class="num v2">0,834</td><td class="num v sep">0,717</td><td class="num v2">0,237</td></tr>
+              <tr><td class="lab">XGBoost</td><td class="num v sep">0,983</td><td class="num v2">0,849</td><td class="num v sep">0,799</td><td class="num v2">0,217</td></tr>
+              <tr><td class="lab">LightGBM</td><td class="num v sep">0,982</td><td class="num v2">0,862</td><td class="num v sep">0,788</td><td class="num v2">0,166</td></tr>
+              <tr><td class="lab">LogisticRegression</td><td class="num v sep">0,921</td><td class="num v2">0,809</td><td class="num v sep">0,079</td><td class="num v2">0,108</td></tr>
+              <tr><td class="lab">DecisionTree</td><td class="num v sep">0,934</td><td class="num v2">0,718</td><td class="num v sep">0,219</td><td class="num v2">0,137</td></tr>
+            </tbody>
+          </table></div>
+          <p class="fine" style="margin-top:12px"><strong>DSpace</strong> = dobras 1 e 3 (evidencia e deposita testados
+            sozinhos). <strong>demais</strong> = dobras 2, 4 e 5. Médias simples entre dobras, como no resultado agregado.</p>
+          <p class="fine" style="margin-top:8px">Sem as dobras DSpace, o RandomForest fica com ROC-AUC
+            <strong>0,834</strong> e precisão <strong>0,237</strong> — em linha com a NSA (0,854 / 0,299) e o OSS
+            (0,891 / 0,175).</p>
+        </div>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>Este é o achado mais importante da execução do governo. Evidencia e deposita são forks do mesmo
+        DSpace, e oitenta por cento dos arquivos Java são idênticos byte a byte. Como o GroupKFold agrupa por repositório,
+        um fica no treino enquanto o outro é testado, e os modelos de árvore simplesmente reconhecem arquivos que já viram,
+        com os mesmos rótulos. Nessas duas dobras o ROC-AUC passa de 0,98. Nas outras três, o desempenho volta ao mesmo
+        patamar dos corpora anteriores. O ganho do governo vem do vazamento, não de um sinal mais forte.
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" id="s11" hidden>
+      <div class="head">
+        <p class="eyebrow">10 · Conclusão</p>
+        <h2>Os resultados sugerem que</h2>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-head"><i class="key k3"></i> O que o terceiro corpus confirma</div>
+          <div class="tw"><table style="min-width:0"><tbody>
+            <tr><td class="lab">cobertura do CK</td><td class="num v2">97%</td><td class="delta up">mantida</td></tr>
+            <tr><td class="lab">CWEs comuns no topo</td><td class="num v2">4 de 6</td><td class="delta up">estável</td></tr>
+            <tr><td class="lab">recall da LogisticRegression</td><td class="num v2">0,751</td><td class="delta up">estável</td></tr>
+          </tbody></table></div>
+          <p class="fine" style="margin-top:11px">O pipeline rodou sem alterações sobre um domínio novo. As correções de coleta
+            se mantiveram, e o resultado de Machine Learning é
+            <strong>consistente com os dois corpora anteriores</strong>.</p>
+        </div>
+        <div>
+          <div class="col-head">Pendência metodológica · composição do dataset</div>
+          <div class="bars">
+            <div class="bar-row"><span class="bar-name">legítimos</span><div class="bar-track"><div class="bar-fill b3" style="width:94.7%" data-tip="Arquivos .java existentes|13.763 linhas na árvore atual"></div></div><span class="bar-val">13.763</span></div>
+            <div class="bar-row"><span class="bar-name">históricos</span><div class="bar-track"><div class="bar-fill bm" style="width:100%" data-tip="Arquivos deletados ou renomeados|14.536 linhas vindas do histórico git do PyDriller"></div></div><span class="bar-val">14.536</span></div>
+            <div class="bar-row"><span class="bar-name">não-Java</span><div class="bar-track"><div class="bar-fill bm" style="width:35.9%" data-tip="Arquivos de frontend e configuração|5.222 linhas vindas do SonarQube · 199 delas positivas"></div></div><span class="bar-val">5.222</span></div>
+          </div>
+          <p class="fine" style="margin-top:12px">Das <strong>33.521</strong> linhas do dataset do governo, só
+            <strong>13.763</strong> são arquivos <span class="num">.java</span> existentes. A diluição já existia na NSA e no
+            OSS; no governo, parte dos não-Java também vira positivo.</p>
+          <p class="fine" style="margin-top:8px"><strong>Nova pendência:</strong> excluir código de terceiros copiado, como o jQuery UI do
+            siga, antes do SAST.</p>
+        </div>
+      </div>
+      <div class="foot">
+        <span class="src">github-metrics-analyzer · ISO/IEC 25010</span>
+      </div>
+      <div class="notes" hidden>
+        <b>Roteiro</b>Fecho com dois lados. O pipeline mostrou que é reaproveitável: rodou sem mudanças sobre sistemas do
+        governo, e as correções de coleta funcionaram. O Machine Learning fica no
+        mesmo patamar dos estudos anteriores, o que é um resultado consistente. As pendências são concretas: a unidade de
+        análise ainda inclui arquivos que não são Java, e código de terceiros copiado
+        para dentro do repositório distorce a densidade de achados.
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="nav">
+    <button class="btn" id="prev" type="button">← Anterior</button>
+    <div class="dots" id="dots"></div>
+    <span class="count" id="count">1 / 11</span>
+    <button class="btn" id="next" type="button">Próximo →</button>
+    <button class="btn" id="notesBtn" type="button" aria-pressed="false">Notas</button>
+    <button class="btn" id="fsBtn" type="button" aria-pressed="false">Tela cheia</button>
+  </nav>
+</div>
+
+<div id="tip" role="tooltip" hidden></div>
+
+<script>
+(function(){
+  /* ---- deck navigation ---- */
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide:not([data-skip])'));
+  var dots = document.getElementById('dots');
+  var count = document.getElementById('count');
+  var notesBtn = document.getElementById('notesBtn');
+  var i = 0, showNotes = false;
+
+  slides.forEach(function(_, n){
+    var b = document.createElement('button');
+    b.className = 'dot'; b.type = 'button';
+    b.setAttribute('aria-label', 'Slide ' + (n+1));
+    b.addEventListener('click', function(){ go(n); });
+    dots.appendChild(b);
+  });
+  var dotEls = Array.prototype.slice.call(dots.children);
+
+  function render(){
+    slides.forEach(function(s, n){ s.hidden = (n !== i); });
+    dotEls.forEach(function(d, n){ d.setAttribute('aria-current', n === i ? 'true' : 'false'); });
+    count.textContent = (i+1) + ' / ' + slides.length;
+    slides.forEach(function(s){
+      var nt = s.querySelector('.notes');
+      if (nt) nt.hidden = !showNotes;
+    });
+    hideTip();
+  }
+  function go(n){ i = Math.max(0, Math.min(slides.length-1, n)); render(); }
+
+  document.getElementById('prev').addEventListener('click', function(){ go(i-1); });
+  document.getElementById('next').addEventListener('click', function(){ go(i+1); });
+  notesBtn.addEventListener('click', function(){
+    showNotes = !showNotes;
+    notesBtn.setAttribute('aria-pressed', showNotes ? 'true' : 'false');
+    render();
+  });
+  /* fullscreen — the deck is presented from a laptop */
+  var fsBtn = document.getElementById('fsBtn');
+  function fsActive(){ return !!document.fullscreenElement; }
+  function toggleFs(){
+    try {
+      if (fsActive()) { document.exitFullscreen(); }
+      else if (document.documentElement.requestFullscreen) {
+        var p = document.documentElement.requestFullscreen();
+        if (p && p.catch) p.catch(function(){});
+      }
+    } catch (err) { /* blocked by the host — button simply does nothing */ }
+  }
+  fsBtn.addEventListener('click', toggleFs);
+  document.addEventListener('fullscreenchange', function(){
+    var on = fsActive();
+    fsBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    fsBtn.textContent = on ? 'Sair da tela cheia' : 'Tela cheia';
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(i+1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i-1); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(slides.length-1); }
+    else if (e.key === 'n' || e.key === 'N') { notesBtn.click(); }
+    else if (e.key === 'f' || e.key === 'F') { toggleFs(); }
+    else if (e.key === 'Escape') { hideTip(); }
+  });
+
+  /* ---- hover layer: every mark carries its value ---- */
+  var tip = document.getElementById('tip');
+
+  function showTip(el, x, y){
+    var raw = el.getAttribute('data-tip');
+    if (!raw) return;
+    var parts = raw.split('|');
+    tip.innerHTML = '';
+    var head = document.createElement('b');
+    head.textContent = parts[0];
+    tip.appendChild(head);
+    if (parts[1]) tip.appendChild(document.createTextNode(parts[1]));
+    tip.hidden = false;
+    place(x, y);
+  }
+  function place(x, y){
+    var r = tip.getBoundingClientRect();
+    var left = x + 14, top = y + 16;
+    if (left + r.width > window.innerWidth - 10) left = x - r.width - 14;
+    if (top + r.height > window.innerHeight - 10) top = y - r.height - 14;
+    tip.style.left = Math.max(8, left) + 'px';
+    tip.style.top = Math.max(8, top) + 'px';
+  }
+  function hideTip(){ tip.hidden = true; }
+
+  document.addEventListener('mouseover', function(e){
+    var el = e.target.closest ? e.target.closest('[data-tip]') : null;
+    if (el) showTip(el, e.clientX, e.clientY);
+  });
+  document.addEventListener('mousemove', function(e){
+    if (!tip.hidden) {
+      var el = e.target.closest ? e.target.closest('[data-tip]') : null;
+      if (el) place(e.clientX, e.clientY); else hideTip();
+    }
+  });
+  document.addEventListener('mouseout', function(e){
+    var el = e.target.closest ? e.target.closest('[data-tip]') : null;
+    if (el) hideTip();
+  });
+
+  /* keyboard parity: marks are focusable and announce their value */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-tip]'), function(el){
+    var raw = el.getAttribute('data-tip').split('|');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'img');
+    el.setAttribute('aria-label', raw.join(' — '));
+    el.addEventListener('focus', function(){
+      var r = el.getBoundingClientRect();
+      showTip(el, r.left + r.width / 2, r.top);
+    });
+    el.addEventListener('blur', hideTip);
+  });
+
+  render();
+})();
+</script>
+
+</body></html>
