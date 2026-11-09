@@ -1,7 +1,7 @@
 """Regenerate the article figures from the pipeline outputs.
 
 Reads only the CSVs written by github-metrics-analyzer (one folder pair per
-corpus) and writes vector PDFs (plus 300-dpi PNG previews) to ../figures/.
+corpus) and writes only the article's vector PDFs to ../figures/.
 
     python Artigo_TCC/Real/scripts/make_figures.py
 
@@ -10,8 +10,8 @@ Corpus folders (see github-metrics-analyzer/scripts/run_all_corpus.py):
   OSS    -> data/,       reports/        (Corpus 2, clean re-run)
   GOV.BR -> data_govbr/, reports_govbr/
 
-Colour roles follow the validated categorical order (blue, orange, aqua);
-marker shape is a second identity channel for grayscale printing.
+Colour roles follow the presentation's categorical order (blue, ochre, magenta);
+Stack position and hatching distinguish Java and non-Java findings in print.
 """
 from __future__ import annotations
 
@@ -33,22 +33,22 @@ OUT = HERE.parent / "figures"
 OUT.mkdir(exist_ok=True)
 
 CORPORA = [  # label, data dir, reports dir, colour, marker
-    ("NSA", "data_nsa", "reports_nsa", "#2a78d6", "o"),
-    ("OSS", "data", "reports", "#eb6834", "s"),
-    ("GOV.BR", "data_govbr", "reports_govbr", "#1baf7a", "^"),
+    ("NSA", "data_nsa", "reports_nsa", "#4F7CB8", "o"),
+    ("OSS", "data", "reports", "#B26B1F", "s"),
+    ("GOV.BR", "data_govbr", "reports_govbr", "#A8467A", "^"),
 ]
 MODELS = ["LogisticRegression", "DecisionTree", "RandomForest", "XGBoost", "LightGBM"]
 MODEL_LABEL = {"LogisticRegression": "Logistic Regression", "DecisionTree": "Decision Tree",
                "RandomForest": "Random Forest", "XGBoost": "XGBoost", "LightGBM": "LightGBM"}
 
-INK, INK2, MUTED = "#0b0b0b", "#52514e", "#898781"
-GRID, AXIS, SURFACE = "#e1e0d9", "#c3c2b7", "#ffffff"
-GOV = "#1baf7a"
+INK, INK2, MUTED = "#111820", "#3A4552", "#6C7886"
+GRID, AXIS, SURFACE = "#E5EAF0", "#D3DAE2", "#ffffff"
+GOV = "#A8467A"
 FULL_W = 6.22   # \textwidth of the SciTePress template, inches
 
 plt.rcParams.update({
-    "font.family": "sans-serif",
-    "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
+    "font.family": "serif",
+    "font.serif": ["Times New Roman", "Times", "DejaVu Serif"],
     "font.size": 7, "axes.titlesize": 7.5, "axes.labelsize": 7,
     "xtick.labelsize": 6.5, "ytick.labelsize": 6.5, "legend.fontsize": 6.5,
     "axes.edgecolor": AXIS, "axes.linewidth": 0.6, "axes.labelcolor": INK2,
@@ -70,8 +70,12 @@ def style(ax, xgrid=True, ygrid=False):
 
 
 def save(fig, name):
-    fig.savefig(OUT / f"{name}.pdf", bbox_inches="tight", pad_inches=0.02)
-    fig.savefig(OUT / f"{name}.png", bbox_inches="tight", pad_inches=0.02, dpi=300)
+    from matplotlib.text import Text
+    for label in fig.findobj(match=Text):
+        label.set_fontfamily("Times New Roman")
+        label.set_fontsize(9)
+        label.set_fontweight("normal")
+    fig.savefig(OUT / f"{name}.pdf")
     plt.close(fig)
     print("wrote", OUT / f"{name}.pdf")
 
@@ -87,8 +91,17 @@ SHORT = {"datawave-authorization-service": "datawave-authz",
 # Figure 2 - Semgrep findings per Java KLOC, all files vs .java only
 # ------------------------------------------------------------------ #
 def fig_density():
-    fig, axes = plt.subplots(1, 3, figsize=(FULL_W, 2.05), sharex=True)
-    for ax, (label, dd, _, colour, _m) in zip(axes, CORPORA):
+    from matplotlib.patches import Patch
+    from matplotlib.colors import to_rgb
+
+    for label, dd, _, colour, _m in CORPORA:
+        fig, ax = plt.subplots(figsize=(FULL_W, 2.8))
+        fig.subplots_adjust(left=0.30, right=0.76, top=0.76, bottom=0.19)
+        handles = [Patch(facecolor=INK2, label="Java files"),
+                   Patch(facecolor="#EDF0F3", edgecolor=MUTED, hatch="////",
+                         linewidth=0.3, label="Other files (web, configuration, etc.)")]
+        fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0, 0.99),
+                   ncol=2, frameon=False, handlelength=1.6, columnspacing=1.5)
         loc = pd.read_csv(GMA / dd / "loc.csv")
         sem = pd.read_csv(GMA / dd / "semgrep_findings.csv")
         is_java = sem.file.astype(str).str.lower().str.endswith(".java")
@@ -98,30 +111,28 @@ def fig_density():
             rows.append((repo.split("/")[1], s.sum() / kloc, (s & is_java).sum() / kloc))
         d = pd.DataFrame(rows, columns=["repo", "all", "java"]).sort_values("all")
         y = np.arange(len(d))
-        ax.hlines(y, d.java, d["all"], color=AXIS, linewidth=1.2, zorder=1)
-        ax.scatter(d.java, y, s=16, facecolor=SURFACE, edgecolor=colour, linewidth=1.0, zorder=3)
-        ax.scatter(d["all"], y, s=18, color=colour, edgecolor=SURFACE, linewidth=0.6, zorder=4)
+        pale = tuple(0.85 + 0.15*c for c in to_rgb(colour))
+        for yi in y[::2]:
+            ax.axhspan(yi-0.48, yi+0.48, color="#F5F7F9", zorder=0)
+        ax.barh(y, d.java, height=0.61, color=colour, zorder=3)
+        ax.barh(y, d["all"]-d.java, left=d.java, height=0.61,
+                color=pale, edgecolor=colour, hatch="////", linewidth=0.25, zorder=3)
         ax.set_yticks(y)
-        ax.set_yticklabels([SHORT.get(r, r) for r in d.repo])
+        ax.set_yticklabels(d.repo, fontsize=7)
         total_kloc = loc.java_code.sum() / 1000
-        ax.set_title(f"{label}  ({total_kloc:,.0f} Java KLOC)", loc="left", color=INK, pad=3)
-        ax.set_xlim(-0.15, 6.6)
-        ax.set_xticks([0, 2, 4, 6])
+        ax.set_title(f"{label}  |  {total_kloc:,.0f} Java KLOC", loc="left", color=colour, pad=8, fontsize=8.5, weight="normal")
+        ax.set_xlim(0, 6.5)
+        ax.set_xticks([0, 1, 2, 3, 4, 5, 6])
+        ax.tick_params(axis="x", labelbottom=True)
+        ax.set_ylim(-0.65, len(d)-0.35)
+        ax.text(1.12, 1.05, "Total", ha="center", transform=ax.transAxes, fontsize=7, color=INK2, weight="normal")
+        ax.text(1.34, 1.05, "Java", ha="center", transform=ax.transAxes, fontsize=7, color=INK2, weight="normal")
+        for yi, row in enumerate(d.itertuples()):
+            ax.text(1.12, yi, f"{row.all:.2f}", transform=ax.get_yaxis_transform(), ha="center", va="center", fontsize=7, fontfamily="Times New Roman")
+            ax.text(1.34, yi, f"{row.java:.2f}", transform=ax.get_yaxis_transform(), ha="center", va="center", fontsize=7, fontfamily="Times New Roman")
         style(ax)
-        top = d.iloc[-1]
-        if top["all"] > 4:   # the vendored-code outlier (siga): note it in the empty area
-            ax.text(6.5, 1.5, f"{top.repo}: {top['all']:.2f} for all files,\n"
-                                f"{top['java']:.2f} for .java files only",
-                    ha="right", va="center", fontsize=6.3, color=INK2, linespacing=1.25)
-    axes[1].set_xlabel("Semgrep findings per Java KLOC")
-    handles = [Line2D([], [], marker="o", linestyle="none", markersize=4.6, markerfacecolor=INK2,
-                      markeredgecolor=SURFACE, label="all scanned files"),
-               Line2D([], [], marker="o", linestyle="none", markersize=4.2, markerfacecolor=SURFACE,
-                      markeredgecolor=INK2, markeredgewidth=1.0, label=".java files only")]
-    axes[0].legend(handles=handles, loc="lower right", frameon=False, handletextpad=0.3,
-                   borderaxespad=0.2)
-    fig.tight_layout(w_pad=0.6)
-    save(fig, "fig_density")
+        ax.set_xlabel("Findings per 1,000 lines of Java code", fontsize=8, labelpad=6)
+        save(fig, "fig_density_" + label.lower().replace(".", ""))
 
 
 # ------------------------------------------------------------------ #
@@ -130,63 +141,53 @@ def fig_density():
 def fig_pipeline():
     from matplotlib.patches import FancyBboxPatch
 
-    fig = plt.figure(figsize=(FULL_W, 2.3))
+    fig = plt.figure(figsize=(FULL_W, 4.4))
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(0, 100)
-    ax.set_ylim(0, 37.8)
+    ax.set_ylim(0, 89)
     ax.axis("off")
+    def card(x, y, w, h, title, body, fill="#F5F7F9"):
+        ax.add_patch(FancyBboxPatch((x, y), w, h,
+                     boxstyle="round,pad=0,rounding_size=1.2",
+                     facecolor=fill, edgecolor=AXIS, linewidth=0.7))
+        ax.text(x+2, y+h-2.3, title, fontsize=8, weight="normal", va="top", color=INK)
+        ax.text(x+2, y+h-7.5, body, fontsize=7.3, va="top", color=INK2, linespacing=1.25)
 
-    def box(x, y, w, h, text, size=6.2):
-        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=0.8",
-                                    facecolor=SURFACE, edgecolor=AXIS, linewidth=0.7))
-        ax.text(x + w / 2, y + h / 2, text, ha="center", va="center", fontsize=size,
-                color=INK, linespacing=1.3)
+    def arrow(points, dashed=False):
+        xs, ys = zip(*points)
+        ax.plot(xs[:-1], ys[:-1], color=MUTED, lw=0.9,
+                linestyle="--" if dashed else "-", zorder=0)
+        ax.annotate("", xy=points[-1], xytext=points[-2],
+                    arrowprops=dict(arrowstyle="-|>", color=MUTED, lw=0.9,
+                                    linestyle="--" if dashed else "-",
+                                    shrinkA=0, shrinkB=0, mutation_scale=8), zorder=0)
 
-    def arrow(x0, y0, x1, y1):
-        ax.annotate("", xy=(x1, y1), xytext=(x0, y0),
-                    arrowprops=dict(arrowstyle="-|>", color=INK2, lw=0.7,
-                                    shrinkA=0, shrinkB=0, mutation_scale=7))
+    card(1, 75, 98, 12, "1  Collect source code and full Git history",
+         "30 Java repositories: 10 NSA + 10 OSS + 10 GOV.BR", fill="#EDF0F3")
+    ax.text(1, 70.5, "2  Extract three kinds of evidence", fontsize=8.5, weight="normal")
+    card(1, 44, 31, 23, "Quality metrics",
+         "SonarQube: 20 structural\nCK: 14 object-oriented\nPyDriller: 7 process\n41 features in total")
+    card(35, 44, 30, 23, "Security label",
+         "Semgrep + CodeQL\nPositive file = at least\none finding from\neither SAST tool")
+    card(68, 44, 31, 23, "Additional context",
+         "OSV: dependencies\nGitleaks + detect-secrets\ncloc: Java code size\nDescriptive evidence only")
+    for x in (16.5, 50, 83.5):
+        arrow([(x, 69), (x, 68), (x, 67)])
 
-    # collector groups: header 1.6 + boxes of 3.0 with 0.4 gaps + 0.8 padding
-    gx, gw, bh = 29.0, 31.0, 3.0
-    groups = [  # (bottom y, height, title, fill, tool texts)
-        (24.5, 13.0, "features (ISO/IEC 25010: maintainability)", "#f3f3f1",
-         ["SonarQube 26.6: 20 structural", "CK 0.7.0: 14 object-oriented", "PyDriller 2.9: 7 process"]),
-        (14.1, 9.6, "label (ISO/IEC 25010: security)", "#e9e8e3",
-         ["Semgrep 1.165 (auto rules)", "CodeQL 2.25.6 (security-extended)"]),
-        (0.3, 13.0, "descriptive only", "#f3f3f1",
-         ["OSV API: vulnerable dependencies", "secrets: Gitleaks + detect-secrets", "cloc: Java KLOC"]),
-    ]
-    mids = []
-    for gy, gh, title, fill, texts in groups:
-        ax.add_patch(FancyBboxPatch((gx, gy), gw, gh, boxstyle="round,pad=0,rounding_size=1.0",
-                                    facecolor=fill, edgecolor="none"))
-        top = gy + gh
-        ax.text(gx + 1.0, top - 0.7, title, ha="left", va="top", fontsize=6.0,
-                color=INK2, style="italic")
-        for i, txt in enumerate(texts):
-            box(gx + 1.5, top - 2.4 - bh - i * (bh + 0.4), gw - 3.0, bh, txt, size=6.1)
-        mids.append(gy + gh / 2)
+    card(1, 22, 64, 15, "3  Build the prediction dataset",
+         "One row per file = 41 quality features + security label\nSAST finding counts are excluded from the features.", fill="#EDF0F3")
+    card(68, 18, 31, 19, "Describe security posture",
+         "Findings per Java KLOC\nCWE to ISO/IEC 25010\nDependencies and secrets")
+    arrow([(16.5, 44), (16.5, 40), (16.5, 37)])
+    arrow([(46, 44), (46, 40), (46, 37)])
+    arrow([(56, 44), (56, 40), (75, 40), (75, 37)])
+    arrow([(88, 44), (88, 40), (88, 37)])
 
-    # inputs, centred on the label group
-    yc = mids[1]
-    box(0.5, yc - 5.5, 11.5, 11.0, "30 Java\nrepositories\n3 corpora × 10\nNSA, OSS,\nGOV.BR")
-    box(15.0, yc - 5.5, 10.5, 11.0, "git clone\nfull history\nno build,\nno execution")
-    arrow(12.0, yc, 15.0, yc)
-    for ym in mids:
-        arrow(25.5, yc, gx, ym)
-
-    # dataset builder, posture report, ML
-    box(64.0, 19.0, 16.0, 14.0, "dataset builder\none row per file\nlabel: any Semgrep\n"
-                                "or CodeQL finding\n41 features; tool\ncounts excluded")
-    box(64.0, 2.0, 16.0, 13.0, "posture report\nfindings per KLOC\nCWE to ISO/IEC\n25010 mapping\nSCA and secrets")
-    box(84.0, 18.5, 15.5, 15.0, "machine learning\nGroupKFold (5)\nby repository\nSMOTE on training\n"
-                                "folds only\nLR, DT, RF,\nXGBoost, LightGBM")
-    arrow(gx + gw, mids[0], 64.0, 29.5)    # features -> dataset
-    arrow(gx + gw, 20.0, 64.0, 22.5)       # label -> dataset
-    arrow(gx + gw, 16.5, 64.0, 12.0)       # label -> report (CWE profile)
-    arrow(gx + gw, mids[2], 64.0, 7.5)     # descriptive -> report
-    arrow(80.0, 26.0, 84.0, 26.0)          # dataset -> ML
+    card(1, 1, 64, 16, "4  Train and evaluate five classifiers",
+         "5 folds grouped by repository; SMOTE on training folds only\nLogistic regression, decision tree, random forest,\nXGBoost and LightGBM", fill="#EDF0F3")
+    arrow([(33, 22), (33, 19.5), (33, 17)])
+    ax.text(69, 10, "Context informs the report;\nit does not enter the models.",
+            fontsize=7.2, color=INK2, va="top", linespacing=1.4)
     save(fig, "fig_pipeline")
 
 
