@@ -24,13 +24,13 @@
 \usepackage[bottom]{footmisc}
 \usepackage{booktabs}
 \usepackage{url}
+\usepackage{placeins} % Keep floats within their relevant discussion.
 \usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
 
 \begin{document}
 
 \title{Predicting Security-Prone Java Files from Quality Metrics: A Build-Free Three-Corpus Study}
 
-% TODO: confirm the author list (advisor; co-authors of the original study) and the affiliation.
 \author{\authorname{Igor Rodrigues and Thiago Souza}
 \affiliation{Software Engineering Program, Ibmec, Rio de Janeiro, Brazil}
 \email{igor-mariano@outlook.com, [advisor e-mail]}
@@ -91,7 +91,7 @@ Security-prone files are rare, which shapes both learning and evaluation. With a
 \label{sec:method}
 % =====================================================================
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
   \centering
   \includegraphics[width=\textwidth]{figures/fig_pipeline.pdf}
   \caption{The build-free pipeline. Repositories are cloned with their full history and never built; one tool per dimension produces the 41 features, the union of two SAST tools produces the label, and SCA, secret and size measures are descriptive only.}
@@ -241,6 +241,7 @@ F_1 = \frac{2PR}{P+R},
 together with ROC-AUC, the area under the receiver operating characteristic curve, which equals the probability that a randomly chosen positive file receives a higher score than a randomly chosen negative file. ROC-AUC does not depend on the decision threshold and is insensitive to the base rate, whereas the measures of Equations~(\ref{eq:pr}) and~(\ref{eq:f1}) are computed at the default threshold and are directly affected by class imbalance: a random classifier has an expected ROC-AUC of 0.5 and an expected precision equal to the positive rate. Every metric is computed per fold and then averaged, so that folds of different sizes weigh equally.
 
 % =====================================================================
+\FloatBarrier
 \section{\uppercase{Results}}
 \label{sec:results}
 % =====================================================================
@@ -249,14 +250,28 @@ together with ROC-AUC, the area under the receiver operating characteristic curv
 
 Table~\ref{tab:corpora} shows that GOV.BR, with the least Java code (1,457 KLOC, about half of each other corpus), produced the most SAST findings (3,289) and has the highest positive rate (2.34\%). Most of the difference comes from Semgrep, whose findings are dominated by files that are not Java: only 39\%, 26\% and 20\% of its findings in NSA, OSS and GOV.BR, respectively, are in \textit{.java} files. In OSS, 640 of the 1,230 findings are in YAML files, mostly continuous-integration workflows that reference mutable action tags and Docker Compose services that neither drop privileges nor use read-only file systems; in GOV.BR, 1,448 of the 2,193 findings are in HTML or XHTML pages. CodeQL, which analyzes the Java extraction (plus 49 XML files in GOV.BR), yields 0.38, 0.74 and 0.75 findings per KLOC.
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
   \centering
-  \includegraphics[width=\textwidth]{figures/fig_density.pdf}
-  \caption{Semgrep findings per Java KLOC in each repository, counted over all scanned files (filled) and over .java files only (hollow). All panels share the same scale; the gap between the two markers is the contribution of web, configuration and vendored files.}
-  \label{fig:density}
+  \includegraphics[width=\textwidth]{figures/fig_density_nsa.pdf}
+  \caption{Semgrep findings per Java KLOC in NSA repositories. Solid segments represent .java files; hatched segments represent all other scanned files. Total and Java-only densities are shown on the right. The three corpus figures use the same scale and Java code size as the denominator.}
+  \label{fig:density-nsa}
 \end{figure*}
 
-Figure~\ref{fig:density} normalizes Semgrep findings by Java KLOC. In NSA, the densest repositories are tiny research projects (\textit{fractalrabbit} has 1.1 KLOC and three findings), so their densities are unstable. In OSS, the three densest are libraries with an evident attack surface: \textit{shiro} (authentication), \textit{dubbo} (remote procedure calls and serialization) and \textit{netty} (network I/O). GOV.BR is dominated by \textit{siga}, whose 6.04 findings per KLOC are the highest of the 30 repositories. However, 1,072 of its 1,362 findings lie in a vendored copy of jQuery UI 1.10.3, 1,021 of them in the bundled HTML documentation of the library, and restricting the count to \textit{.java} files lowers its density to 0.29. Similarly, 210 of the 314 findings of \textit{dataverse} flag JSF pages that disable output escaping. Densities computed over all scanned files are therefore driven by third-party and non-Java artifacts.
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_density_oss.pdf}
+  \caption{Semgrep findings per Java KLOC in OSS repositories. Solid segments represent .java files; hatched segments represent all other scanned files. Total and Java-only densities are shown on the right. The three corpus figures use the same scale and Java code size as the denominator.}
+  \label{fig:density-oss}
+\end{figure*}
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_density_govbr.pdf}
+  \caption{Semgrep findings per Java KLOC in GOV.BR repositories. Solid segments represent .java files; hatched segments represent all other scanned files. Total and Java-only densities are shown on the right. The three corpus figures use the same scale and Java code size as the denominator.}
+  \label{fig:density-govbr}
+\end{figure*}
+
+Figures~\ref{fig:density-nsa}, \ref{fig:density-oss} and~\ref{fig:density-govbr} normalize Semgrep findings by Java KLOC. In NSA, the densest repositories are tiny research projects (\textit{fractalrabbit} has 1.1 KLOC and three findings), so their densities are unstable. In OSS, the three densest are libraries with an evident attack surface: \textit{shiro} (authentication), \textit{dubbo} (remote procedure calls and serialization) and \textit{netty} (network I/O). GOV.BR is dominated by \textit{siga}, whose 6.04 findings per KLOC are the highest of the 30 repositories. However, 1,072 of its 1,362 findings lie in a vendored copy of jQuery UI 1.10.3, 1,021 of them in the bundled HTML documentation of the library, and restricting the count to \textit{.java} files lowers its density to 0.29. Similarly, 210 of the 314 findings of \textit{dataverse} flag JSF pages that disable output escaping. Densities computed over all scanned files are therefore driven by third-party and non-Java artifacts.
 
 The two SAST tools rarely agree. Among the positive files, only 20 of 560 (3.6\%) in NSA, 38 of 839 (4.5\%) in OSS and 90 of 784 (11.5\%) in GOV.BR are flagged by both tools, which supports the union as a recall-oriented label but also shows how strongly the label depends on the choice of tools. CodeQL alone flags most positives in NSA (349 of 560) and OSS (579 of 839) and 365 of the 784 positives in GOV.BR, where Semgrep findings in non-Java files account for another 178.
 
@@ -308,6 +323,7 @@ Table~\ref{tab:subchar} groups this evidence by security sub-characteristic. Int
 
 \textit{Answer to RQ1.} GOV.BR has the weakest posture in SAST findings, positive rate and vulnerable dependencies, but in all corpora most Semgrep findings come from web pages, configuration files and vendored code rather than from the Java code that the features describe.
 
+\FloatBarrier
 \subsection{RQ2: Predicting Security-Prone Files}
 
 \begin{table*}[t]
@@ -367,6 +383,7 @@ Three properties of the corpora affect labels and features. First, non-Java file
 \textit{Answer to RQ3.} The inclusion of non-Java and historical files in the file universe weakens the link between features and labels in all corpora.
 
 % =====================================================================
+\FloatBarrier
 \section{\uppercase{Discussion}}
 \label{sec:discussion}
 % =====================================================================
@@ -411,8 +428,7 @@ Future work will restrict the file universe to the Java files of the analyzed sn
 \begin{itemize}
   \item Conflicts of Interest: The authors have no conflicts of interest or competing interests to declare in the context of this paper.
   \item Financial and other Support: No funding was received for the work reported here.
-  \item Data Sharing: The pipeline, the file-level datasets of the three corpora and the scripts that generate the figures will be made available at \url{https://github.com/IgorMariano25/AP2_PROJETO_SOFTWARE}.
-  \item AI Tools: An AI assistant (Claude, Anthropic) was used to help draft and edit the text and to write the scripts that generate the figures; all numbers were recomputed from the pipeline outputs and checked by the authors.
+  \item Data Sharing: The pipeline, the file-level datasets of the three corpora and the scripts that generate the figures will be made available at \url{https://github.com/IgorMariano25/TCC-Igor-Rodrigues}.
 \end{itemize}
 
 \bibliographystyle{apalike}
